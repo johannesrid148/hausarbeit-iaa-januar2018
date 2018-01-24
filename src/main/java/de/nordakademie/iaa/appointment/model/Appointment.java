@@ -1,21 +1,32 @@
 package de.nordakademie.iaa.appointment.model;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table (name = "Appointment")
 public class Appointment {
 
+
+    private long id;
    private Date start;
    private Date end;
    private Boolean chosen;
 
    //Constructor
-    public Appointment(Date start, Date end, Boolean chosen) {
+    public Appointment(long id, Date start, Date end, Boolean chosen) {
+        this.id = id;
         this.start = start;
         this.end = end;
         this.chosen = chosen;
     }
 
     //Getter
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public long getId() {
+        return id;
+    }
 
     public Date getStart() {
         return start;
@@ -32,5 +43,9 @@ public class Appointment {
     //Setter
     public void setChosen(Boolean chosen) {
         this.chosen = chosen;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
