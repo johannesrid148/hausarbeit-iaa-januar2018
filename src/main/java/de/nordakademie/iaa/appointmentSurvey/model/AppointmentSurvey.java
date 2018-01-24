@@ -3,9 +3,12 @@ package de.nordakademie.iaa.appointmentSurvey.model;
 import de.nordakademie.iaa.appointment.model.Appointment;
 import de.nordakademie.iaa.user.model.User;
 
-import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.List;
 
+@Entity
+@Table(name = "appointmentSurvey")
 public class AppointmentSurvey {
 
     private String title;
