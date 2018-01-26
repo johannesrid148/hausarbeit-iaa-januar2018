@@ -20,8 +20,8 @@ public class AppointmentFeedbackRepository {
         return entityManager.createQuery("SELECT r FROM AppointmentFeedback r", AppointmentFeedback.class).getResultList();
     }
 
-    public AppointmentFeedback findOne(final long studentId) {
-        return entityManager.find(AppointmentFeedback.class, studentId);
+    public AppointmentFeedback findOne(final int feedbackID) {
+        return entityManager.find(AppointmentFeedback.class, feedbackID);
     }
 
 }

@@ -7,45 +7,21 @@ import java.util.Date;
 @Table (name = "AppointmentFeedback")
 public class AppointmentFeedback {
 
+    private int feedbackID;
 
-    private long id;
-   private Date start;
-   private Date end;
-   private Boolean chosen;
-
-   //Constructor
-    public AppointmentFeedback(long id, Date start, Date end, Boolean chosen) {
-        this.id = id;
-        this.start = start;
-        this.end = end;
-        this.chosen = chosen;
+    public AppointmentFeedback(int feedbackID) {
+        this.feedbackID = feedbackID;
     }
 
     //Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public long getId() {
-        return id;
+
+    public int getFeedbackID() {
+        return feedbackID;
     }
 
-    public Date getStart() {
-        return start;
-    }
-
-    public Date getEnd() {
-        return end;
-    }
-
-    public Boolean getChosen() {
-        return chosen;
-    }
-
-    //Setter
-    public void setChosen(Boolean chosen) {
-        this.chosen = chosen;
-    }
-
-    public void setId(long id) {
-        this.id = id;
+    public void setFeedbackID(int feedbackID) {
+        this.feedbackID = feedbackID;
     }
 }
