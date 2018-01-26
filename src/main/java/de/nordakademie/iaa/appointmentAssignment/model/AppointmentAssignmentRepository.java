@@ -17,11 +17,11 @@ public class AppointmentAssignmentRepository {
     }
 
     public List<AppointmentAssignment> findAll() {
-        return entityManager.createQuery("SELECT r FROM Appointment r", AppointmentAssignment.class).getResultList();
+        return entityManager.createQuery("SELECT r FROM AppointmentAssigment r", AppointmentAssignment.class).getResultList();
     }
 
-    public AppointmentAssignment findOne(final long studentId) {
-        return entityManager.find(AppointmentAssignment.class, studentId);
+    public AppointmentAssignment findOne(final int assignmentID) {
+        return entityManager.find(AppointmentAssignment.class, assignmentID);
     }
 
 }
