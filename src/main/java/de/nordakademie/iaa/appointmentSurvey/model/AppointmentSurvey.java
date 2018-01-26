@@ -3,18 +3,21 @@ package de.nordakademie.iaa.appointmentSurvey.model;
 import de.nordakademie.iaa.appointment.model.Appointment;
 import de.nordakademie.iaa.user.model.User;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "appointmentSurvey")
 public class AppointmentSurvey {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private String title;
     private String description;
     private List<Appointment> appointmentOptions;
     private Boolean active;
+    @ManyToMany
     private User creator;
 
     //Constructor

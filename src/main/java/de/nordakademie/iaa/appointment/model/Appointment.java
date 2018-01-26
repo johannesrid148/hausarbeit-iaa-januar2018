@@ -7,8 +7,10 @@ import java.util.Date;
 @Table (name = "Appointment")
 public class Appointment {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
    private Date start;
    private Date end;
    private Boolean chosen;
@@ -22,8 +24,7 @@ public class Appointment {
     }
 
     //Getter
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     public long getId() {
         return id;
     }
