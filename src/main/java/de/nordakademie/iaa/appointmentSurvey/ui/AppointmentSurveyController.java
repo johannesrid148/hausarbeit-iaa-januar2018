@@ -24,7 +24,7 @@ public class AppointmentSurveyController {
     }
 
     @PostMapping
-    public AppointmentSurvey saveAppointment(@RequestBody final AppointmentSurvey appointment) {
-        return appointmentSurveyService.create(appointment);
+    public AppointmentSurvey saveAppointment(@RequestBody final AppointmentSurvey appointmentSurvey) {
+        return appointmentSurveyService.create(appointmentSurvey);
     }
 }

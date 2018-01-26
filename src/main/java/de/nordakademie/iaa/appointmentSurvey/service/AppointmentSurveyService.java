@@ -24,8 +24,9 @@ public class AppointmentSurveyService {
     }
 
     @Transactional
-    public void create(final AppointmentSurvey appointmentsurvey) {
+    public AppointmentSurvey create(final AppointmentSurvey appointmentsurvey) {
         appointmentSurveyRepository.create(appointmentsurvey);
+        return appointmentsurvey;
     }
 }
 
