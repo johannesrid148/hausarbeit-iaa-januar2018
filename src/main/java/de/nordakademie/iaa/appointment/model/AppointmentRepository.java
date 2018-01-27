@@ -14,6 +14,7 @@ public class AppointmentRepository {
 
     public void create(final Appointment appointment) {
         entityManager.persist(appointment);
+
     }
 
     public List<Appointment> findAll() {

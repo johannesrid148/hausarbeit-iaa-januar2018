@@ -5,7 +5,7 @@
 
 
 <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="url" value="jdbc:h2:C:\Users\Schumann\Documents\UNI\IAA\iaa-jan3\hausarbeit-iaa-januar2018_3\DB\H2"/>
+        <property name="url" value="jdbc:h2:./database/h2"/>
         <property name="username" value="iaa"/>
         <property name="password" value="iaa"/>
         <property name="driverClassName" value="org.h2.Driver"/>
@@ -22,7 +22,7 @@
                 <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
                 <prop key="hibernate.show_sql">false</prop>
                 <prop key="hibernate.format_sql">true</prop>
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
             </props>
         </property>
     </bean>

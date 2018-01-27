@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/appointmentSurvey")
+@RequestMapping("survey")
 public class AppointmentSurveyController {
 
     private final AppointmentSurveyService appointmentSurveyService;
@@ -18,12 +18,17 @@ public class AppointmentSurveyController {
         this.appointmentSurveyService = appointmentSurveyService;
     }
 
-    @GetMapping
+    @RequestMapping(method = RequestMethod.GET)
     public List<AppointmentSurvey> findAll() {
         return appointmentSurveyService.findAll();
     }
 
-    @PostMapping
+    @RequestMapping(method = RequestMethod.GET, path = "/{id}")
+    public AppointmentSurvey getSurvey(@PathVariable("id") Long idSurvey){
+        return  appointmentSurveyService.getSurvey(idSurvey);
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
     public AppointmentSurvey saveAppointment(@RequestBody final AppointmentSurvey appointmentSurvey) {
         return appointmentSurveyService.create(appointmentSurvey);
     }

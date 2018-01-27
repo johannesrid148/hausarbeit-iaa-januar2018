@@ -1,52 +1,63 @@
 package de.nordakademie.iaa.appointment.model;
 
+import de.nordakademie.iaa.user.model.User;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
+
 
 @Entity
-@Table (name = "Appointment")
+@Table(name = "Appointment")
 public class Appointment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
-   private Date start;
-   private Date end;
-   private Boolean chosen;
+    private Date start;
+    private Date end;
 
-   //Constructor
-    public Appointment(long id, Date start, Date end, Boolean chosen) {
-        this.id = id;
+    //@ManyToMany
+    @ElementCollection
+    private List<String> participants;
+
+    //Constructor
+    public Appointment(Date start, Date end, List<String> participants) {
         this.start = start;
         this.end = end;
-        this.chosen = chosen;
+        this.participants = participants;
     }
 
-    //Getter
-
-    public long getId() {
+    public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Date getStart() {
         return start;
     }
 
+    public void setStart(Date start) {
+        this.start = start;
+    }
+
     public Date getEnd() {
         return end;
     }
 
-    public Boolean getChosen() {
-        return chosen;
+    public void setEnd(Date end) {
+        this.end = end;
     }
 
-    //Setter
-    public void setChosen(Boolean chosen) {
-        this.chosen = chosen;
+    public List<String> getParticipants() {
+        return participants;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setParticipants(List<String> participants) {
+        this.participants = participants;
     }
 }

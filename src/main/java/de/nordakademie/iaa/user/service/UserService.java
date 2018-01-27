@@ -24,8 +24,9 @@ public class UserService {
     }
 
     @Transactional
-    public void create(final User user) {
+    public User create(final User user) {
         userRepository.create(user);
+        return user;
     }
 }
 

@@ -7,22 +7,28 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "appointmentSurvey")
+@Table(name = "AppointmentSurvey")
 public class AppointmentSurvey {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     private String title;
     private String description;
+
+    @OneToMany
     private List<Appointment> appointmentOptions;
+
     private Boolean active;
-    @ManyToMany
-    private User creator;
+
+   // @ManyToOne
+    // pivate User creator;
+private String creator;
 
     //Constructor
 
-    public AppointmentSurvey(String title, String description, List<Appointment> appointmentOptions, User creator) {
+    public AppointmentSurvey(String title, String description, List<Appointment> appointmentOptions, String creator) {
         this.title = title;
         this.description = description;
         this.appointmentOptions = appointmentOptions;
@@ -30,77 +36,52 @@ public class AppointmentSurvey {
         this.creator = creator;
     }
 
-    //Getter
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public List<Appointment> getAppointmentOptions() {
-        return appointmentOptions;
-    }
-
-    public Boolean getActive() {
-        return active;
-    }
-
-    public User getCreator() {
-        return creator;
-    }
-
-    //setter
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Appointment> getAppointmentOptions() {
+        return appointmentOptions;
     }
 
     public void setAppointmentOptions(List<Appointment> appointmentOptions) {
         this.appointmentOptions = appointmentOptions;
     }
 
+    public Boolean getActive() {
+        return active;
+    }
+
     public void setActive(Boolean active) {
         this.active = active;
     }
 
-    //methods
-
-    //edit Survey
-    public void editSurvey (String title, String description, List<Appointment> options){
-        setTitle(title);
-        setDescription(description);
-        for (int i = 0; i < getAppointmentOptions().size(); i++) {
-            appointmentOptions.remove(i);
-        }
-        setAppointmentOptions(options);
+    public String getCreator() {
+        return creator;
     }
 
-
-    //end Survey
-    public Appointment getChosenAppointment() {
-        Appointment chosen=null;
-        for (int i = 0; i < getAppointmentOptions().size(); i++) {
-            if (getAppointmentOptions().get(i).getChosen()==true){
-                chosen=getAppointmentOptions().get(i);
-            }
-        }
-        return chosen;
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
-
-    public Appointment endSurvey(){
-        setActive(false);
-        return getChosenAppointment();
-    }
-
-
-
 }
 
