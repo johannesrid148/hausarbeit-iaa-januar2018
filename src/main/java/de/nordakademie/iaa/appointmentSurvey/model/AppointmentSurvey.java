@@ -83,5 +83,8 @@ private String creator;
     public void setCreator(String creator) {
         this.creator = creator;
     }
+
+    public void update(String title, String description, List<Appointment> appointmentOptions) {
+    }
 }
 

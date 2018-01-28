@@ -1,5 +1,6 @@
 package de.nordakademie.iaa.appointmentSurvey.ui;
 
+import de.nordakademie.iaa.appointment.model.Appointment;
 import de.nordakademie.iaa.appointmentSurvey.model.AppointmentSurvey;
 import de.nordakademie.iaa.appointmentSurvey.service.AppointmentSurveyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,14 @@ public class AppointmentSurveyController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public AppointmentSurvey saveAppointment(@RequestBody final AppointmentSurvey appointmentSurvey) {
+    public AppointmentSurvey saveSurvey(@RequestBody final AppointmentSurvey appointmentSurvey) {
         return appointmentSurveyService.create(appointmentSurvey);
     }
+
+    @RequestMapping (method = RequestMethod.PUT)
+    public AppointmentSurvey updateSurvey(@RequestBody final AppointmentSurvey appointmentSurvey){
+      return  appointmentSurveyService.update(appointmentSurvey);
+    }
+
+
 }

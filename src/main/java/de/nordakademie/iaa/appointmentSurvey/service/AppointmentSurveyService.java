@@ -44,5 +44,19 @@ public class AppointmentSurveyService {
         return appointmentSurveyRepository.findOne(idSurvey);
 
     }
+
+    @Transactional
+    public AppointmentSurvey update(AppointmentSurvey appointmentSurvey) {
+        AppointmentSurvey appointmentSurveyUpdate = appointmentSurveyRepository.findOne(appointmentSurvey.getId());
+        AppointmentSurvey updatedAppointmentSurvey = null;
+
+        if (appointmentSurveyUpdate != null) {
+            appointmentSurveyUpdate.setDescription(appointmentSurvey.getDescription());
+            appointmentSurveyUpdate.setTitle(appointmentSurvey.getTitle());
+            appointmentSurveyUpdate.setAppointmentOptions(appointmentSurvey.getAppointmentOptions());
+        }
+        updatedAppointmentSurvey = appointmentSurveyRepository.update(appointmentSurveyUpdate);
+        return updatedAppointmentSurvey;
+    }
 }
 
