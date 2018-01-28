@@ -39,5 +39,10 @@ public class AppointmentSurveyController {
       return  appointmentSurveyService.update(appointmentSurvey);
     }
 
+    /*@RequestMapping (method = RequestMethod.DELETE)
+    public void AppointmentSurvey deleteSurvey(@RequestParam("appointmentSurveyId") Long appointmentSurveyId){
+        String retValue = "return";
+        appointmentSurveyService.delete(appointmentSurveyId);
+    }*/
 
 }

@@ -1,5 +1,6 @@
 package de.nordakademie.iaa.appointment.model;
 
+import de.nordakademie.iaa.appointmentSurvey.model.AppointmentSurvey;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -25,4 +26,8 @@ public class AppointmentRepository {
         return entityManager.find(Appointment.class, studentId);
     }
 
+
+    public void delete(Appointment appointment) {
+        entityManager.remove(appointment);
+    }
 }

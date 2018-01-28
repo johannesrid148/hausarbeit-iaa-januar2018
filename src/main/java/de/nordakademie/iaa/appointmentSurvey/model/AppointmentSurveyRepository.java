@@ -29,4 +29,9 @@ public class AppointmentSurveyRepository {
        entityManager.merge(appointmentSurvey);
         return appointmentSurvey;
     }
+
+
+    public void delete(AppointmentSurvey appointmentSurvey) {
+        entityManager.remove(appointmentSurvey);
+    }
 }

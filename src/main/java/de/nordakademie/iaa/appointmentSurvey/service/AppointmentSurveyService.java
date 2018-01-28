@@ -58,5 +58,27 @@ public class AppointmentSurveyService {
         updatedAppointmentSurvey = appointmentSurveyRepository.update(appointmentSurveyUpdate);
         return updatedAppointmentSurvey;
     }
+
+   /* @Transactional
+    public void AppointmentSurvey delete(Long appointmentSurveyId) {
+        AppointmentSurvey appointmentSurvey = appointmentSurveyRepository.findOne(appointmentSurveyId);
+        deleteAppointmentForSurvey(appointmentSurvey);
+        appointmentSurveyRepository.delete(appointmentSurvey);
+    };*/
+
+    private void deleteAppointmentForSurvey(AppointmentSurvey appointmentSurvey) {
+
+        List<Appointment> appointments = appointmentSurvey.getAppointmentOptions();
+        for (Appointment appointment: appointments){
+            appointmentRepository.delete(appointment);
+        }
+
+        /*
+        List<LectureAppointment> appointments = lectureAppointmentRepository.findAppointmentByLecture(lecture);
+        for (LectureAppointment appointment : appointments) {
+            lectureAppointmentRepository.delete(appointment);
+        }*/
+    }
+
 }
 
