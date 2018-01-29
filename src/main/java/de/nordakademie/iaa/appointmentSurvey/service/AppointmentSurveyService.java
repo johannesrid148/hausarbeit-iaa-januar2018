@@ -59,12 +59,12 @@ public class AppointmentSurveyService {
         return updatedAppointmentSurvey;
     }
 
-   /* @Transactional
-    public void AppointmentSurvey delete(Long appointmentSurveyId) {
+    @Transactional
+    public AppointmentSurvey delete(Long appointmentSurveyId) {
         AppointmentSurvey appointmentSurvey = appointmentSurveyRepository.findOne(appointmentSurveyId);
         deleteAppointmentForSurvey(appointmentSurvey);
         appointmentSurveyRepository.delete(appointmentSurvey);
-    };*/
+    };
 
     private void deleteAppointmentForSurvey(AppointmentSurvey appointmentSurvey) {
 
@@ -72,13 +72,7 @@ public class AppointmentSurveyService {
         for (Appointment appointment: appointments){
             appointmentRepository.delete(appointment);
         }
-
-        /*
-        List<LectureAppointment> appointments = lectureAppointmentRepository.findAppointmentByLecture(lecture);
-        for (LectureAppointment appointment : appointments) {
-            lectureAppointmentRepository.delete(appointment);
-        }*/
-    }
+    };
 
 }
 
