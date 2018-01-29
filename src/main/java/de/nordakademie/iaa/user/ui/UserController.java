@@ -18,12 +18,12 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
+    @RequestMapping(method = RequestMethod.GET)
     public List<User> findAll() {
         return userService.findAll();
     }
 
-    @PostMapping
+    @RequestMapping(method = RequestMethod.POST)
     public User saveUser(@RequestBody final User user) {
         return userService.create(user);
     }
