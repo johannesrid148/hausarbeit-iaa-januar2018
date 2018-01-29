@@ -74,5 +74,11 @@ public class AppointmentSurveyService {
         }
     };
 
+    @Transactional
+    public AppointmentSurvey endSurvey(Long idSurvey) {
+        AppointmentSurvey appointmentSurvey = appointmentSurveyRepository.findOne(idSurvey);
+        return appointmentSurveyRepository.endSurvey(appointmentSurvey);
+    }
+
 }
 
