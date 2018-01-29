@@ -2,9 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Stundenplan-Verwaltung</title>
+    <script src="./js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+    <script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <link href="./css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="./css/navbar.css" rel="stylesheet"/>
+    <link href="./css/table.css" rel="stylesheet"/>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 </head>
-<body>
-Hallo Welt
-</body>
-</html>
+<body ng-app="surveyAdministration">
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#!lectures">Umfragen</a>
+        </div>
+        <ul class="pull-right">
+            <li class="nav-item">
+                <a class="nav-link" href="#!lectures">Veranstaltungen</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#!centuries">Zenturien</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#!cohorts">Kohorten</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#!rooms">Räume</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#!professors">Dozenten</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<ng-view></ng-view>
+
+<!-- JS Files -->
+<script src="js/application.js"></script>
+<!-- JS Files century -->
+<script src="js/century/controller/centuryEditController.js"></script>
+<script src="js/century/controller/centuryListController.js"></script>
+<script src="js/century/service/centuryService.js"></script>
+<!-- JS Files cohort -->
+<script src="js/cohort/controller/cohortEditController.js"></script>
+<script src="js/cohort/controller/cohortListController.js"></script>
+<script src="js/cohort/service/cohortService.js"></script>
+<!-- JS Files lecture -->

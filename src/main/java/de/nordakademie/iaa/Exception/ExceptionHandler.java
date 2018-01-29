@@ -1,6 +1,5 @@
 package de.nordakademie.iaa.Exception;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
