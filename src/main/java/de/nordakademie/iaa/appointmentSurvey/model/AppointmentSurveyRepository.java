@@ -34,4 +34,9 @@ public class AppointmentSurveyRepository {
     public void delete(AppointmentSurvey appointmentSurvey) {
         entityManager.remove(appointmentSurvey);
     }
+
+    public AppointmentSurvey endSurvey(AppointmentSurvey appointmentSurvey) {
+        appointmentSurvey.setActive(false);
+        return appointmentSurvey;
+    }
 }

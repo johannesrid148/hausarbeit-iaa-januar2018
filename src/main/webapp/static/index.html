@@ -2,9 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Stundenplan-Verwaltung</title>
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+    <script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/navbar.css" rel="stylesheet"/>
+    <link href="css/table.css" rel="stylesheet"/>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 </head>
-<body>
-Hallo Welt
-</body>
-</html>
+<body ng-app="surveyAdministration">
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Umfragen</a>
+        </div>
+        <ul class="pull-right">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Eigene Umfragen</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#!">Umfragen erstellen</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<ng-view></ng-view>
+
+<!-- JS Files -->
+<script src="js/surveyApplication.js"></script>
+<!-- JS Files appointment -->
+<script src="js/appointment/controller/appointmentEditController.js"></script>
+<script src="js/appointment/controller/appointmentListController.js"></script>
+<script src="js/appointment/service/appointmentService.js"></script>
+<!-- JS Files appointmentSurvey -->
+<script src="js/appointmentSurvey/controller/appointmentSurveyEditController.js"></script>
+<script src="js/appointmentSurvey/controller/appointmentSurveyListController.js"></script>
+<script src="js/appointmentSurvey/service/appointmentSurveyService.js"></script>
+<!-- JS Files user -->
+<script src="js/user/controller/userEditController.js"></script>
+<script src="js/user/controller/userListController.js"></script>
+<script src="js/user/service/userService.js"></script>
+<!-- JS Files lecture -->
