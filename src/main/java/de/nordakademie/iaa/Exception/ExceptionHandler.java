@@ -19,5 +19,9 @@ public class ExceptionHandler {
 
     private class ErrorResponse {
         private String errorMessage;
+
+        public ErrorResponse(Object message) {
+        }
     }
+
 }

@@ -43,13 +43,15 @@ public class AppointmentSurveyController {
     }
 
     //Löschen
-    @RequestMapping (method = RequestMethod.DELETE)
+    @PostMapping
+    @RequestMapping ("/delete")
     public void deleteSurvey(@RequestParam("appointmentSurveyId") Long appointmentSurveyId){
         appointmentSurveyService.delete(appointmentSurveyId);
     }
 
     //Eine Umfrage beenden
-    @RequestMapping(method = RequestMethod.GET, path = "/{id}")
+    @GetMapping
+    @RequestMapping("endSurvey")
     public AppointmentSurvey endSurvey(@PathVariable("id") Long idSurvey){
         return  appointmentSurveyService.endSurvey(idSurvey);
     }

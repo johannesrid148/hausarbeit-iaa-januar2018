@@ -60,7 +60,7 @@ public class AppointmentSurveyService {
     }
 
     @Transactional
-    public AppointmentSurvey delete(Long appointmentSurveyId) {
+    public void delete(Long appointmentSurveyId) {
         AppointmentSurvey appointmentSurvey = appointmentSurveyRepository.findOne(appointmentSurveyId);
         deleteAppointmentForSurvey(appointmentSurvey);
         appointmentSurveyRepository.delete(appointmentSurvey);
