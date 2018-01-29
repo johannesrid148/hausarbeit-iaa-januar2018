@@ -4,9 +4,9 @@ const application = angular.module('surveyAdministration', ['ngRoute', 'ui.boots
 
 application.config(function ($routeProvider) {
     $routeProvider
-        .when('/professors', {
-            controller: 'professorListController',
-            templateUrl: 'view/professor/professorList.html'
+        .when('/survey', {
+            controller: 'surveyListController',
+            templateUrl: 'view/user/userList.html'
         })
         .otherwise({
             redirectTo: '/survey'
