@@ -23,37 +23,59 @@ import javax.persistence.UniqueConstraint;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String userID;
-    private String name;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long userID;
+
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
 
     //Constructor
-    public User(String userID,String name,String email,String password){
-        this.email=email;
-        this.name=name;
-        this.password=password;
-        this.userID=userID;
+    public User(String firstName, String lastName, String email, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
     }
 
-    //Getter
-    public String getUserID() {
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public Long getUserID() {
         return userID;
     }
 
-    public String getName() {
-        return name;
+    public void setUserID(Long userID) {
+        this.userID = userID;
     }
 
     public String getEmail() {
         return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPassword() {
         return password;
     }
 
-    //Methoden
-
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
