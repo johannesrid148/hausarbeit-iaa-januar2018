@@ -12,7 +12,7 @@ application.controller('appointmentSurveyListController', [
 
         // function to navigate to the timetable
         $scope.getAppointmentSurvey = function (appointmentSurveyID) {
-            $location.path('/timeTable/Professor/' + professorId);
+            $location.path('/survey/' + appointmentSurveyID);
         };
     }
 ]);

@@ -10,7 +10,7 @@ application.service('appointmentSurveyService', [
 
         // function to save a new survey
         this.saveSurvey = function (apppointmentSurvey) {
-            return $http.post('/surveys', apppointmentSurvey);
+            return $http.post('iaa/api/appointmentSurvey', apppointmentSurvey);
         };
     }
 ]);
