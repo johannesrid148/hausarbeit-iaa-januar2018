@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
-</html>
+<div class="container">
+    <br/>
+    <h2>Umfrageübersicht</h2>
+    <div class="row">
+        <div class="col-sm-2"><input class="form-control" type="text" ng-model="surveySearchQuery"
+                                     placeholder="Suche"/>
+        </div>
+        <div class="col-sm-6"></div>
+        <div class="col-sm-4"><a href="#!surveyEdit" class="btn btn-default" role="button"><span
+                class="glyphicon glyphicon-plus"></span> Umfrage anlegen</a></div>
+    </div>
+    <br/>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Ersteller</th>
+            <th>Zeiten</th>
+            <th/>
+        </tr>
+        </thead>
+        <tr ng-repeat="survey in surveys | filter:surveySearchQuery | orderBy:['creator']">
+            <td>{{appointmentSurvey.creator}}</td>
+            <td>
+                <button class="btn btn-default" type="button" ng-click="getAppointmentSurvey(appointmentSurvey.id)">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>

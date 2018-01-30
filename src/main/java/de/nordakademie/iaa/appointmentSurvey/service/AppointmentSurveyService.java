@@ -42,7 +42,6 @@ public class AppointmentSurveyService {
     @Transactional(readOnly = true)
     public AppointmentSurvey getSurvey(Long idSurvey) {
         return appointmentSurveyRepository.findOne(idSurvey);
-
     }
 
     @Transactional
@@ -80,5 +79,7 @@ public class AppointmentSurveyService {
         return appointmentSurveyRepository.endSurvey(appointmentSurvey);
     }
 
+   /* public AppointmentSurvey participate(AppointmentSurvey appointmentSurvey) {
+    }*/
 }
 

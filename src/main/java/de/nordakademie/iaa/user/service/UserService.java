@@ -28,5 +28,10 @@ public class UserService {
         userRepository.create(user);
         return user;
     }
+
+    @Transactional(readOnly = true)
+    public User getUser(Long userID) {
+            return userRepository.findOne(userID);
+        }
 }
 

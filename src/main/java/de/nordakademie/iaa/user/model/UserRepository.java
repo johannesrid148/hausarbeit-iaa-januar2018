@@ -20,8 +20,8 @@ public class UserRepository {
         return entityManager.createQuery("SELECT r FROM User r", User.class).getResultList();
     }
 
-    public User findOne(final long studentId) {
-        return entityManager.find(User.class, studentId);
+    public User findOne(final long userId) {
+        return entityManager.find(User.class, userId);
     }
 
 }

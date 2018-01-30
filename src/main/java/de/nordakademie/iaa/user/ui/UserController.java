@@ -23,9 +23,16 @@ public class UserController {
         return userService.findAll();
     }
 
+    //Erhalte einen einzelnen
+    @RequestMapping(method = RequestMethod.GET, path = "/{id}")
+    public User getUser(@PathVariable("id") Long userID){
+        return  userService.getUser(userID);
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public User saveUser(@RequestBody final User user) {
         return userService.create(user);
     }
 
 }
+

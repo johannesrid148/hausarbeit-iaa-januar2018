@@ -18,6 +18,12 @@ public class AppointmentSurveyController {
         this.appointmentSurveyService = appointmentSurveyService;
     }
 
+    //Teilnehmen
+    @RequestMapping(method = RequestMethod.POST)
+    public AppointmentSurvey participateSurvey(@RequestBody final AppointmentSurvey appointmentSurvey) {
+        return appointmentSurveyService.update(appointmentSurvey);
+    }
+
     //Erhalte alle
     @RequestMapping(method = RequestMethod.GET)
     public List<AppointmentSurvey> findAll() {
