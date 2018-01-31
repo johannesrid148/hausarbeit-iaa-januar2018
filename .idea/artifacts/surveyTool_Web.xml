@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="surveyTool:Web">
+    <output-path>$PROJECT_DIR$/out/artifacts/surveyTool_Web</output-path>
+    <root id="archive" name="surveyTool_Web.war">
+      <element id="artifact" artifact-name="surveyTool:Web exploded" />
+    </root>
+  </artifact>
+</component>
