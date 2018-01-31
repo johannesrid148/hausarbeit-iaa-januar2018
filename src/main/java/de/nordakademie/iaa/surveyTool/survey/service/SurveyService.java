@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class SurveyService {
@@ -44,29 +45,25 @@ public class SurveyService {
     }
 
     @Transactional
-    public Survey update(Survey appointmentSurvey) {
-        Survey appointmentSurveyUpdate = surveyRepository.findOne(appointmentSurvey.getId());
-        Survey updatedSurvey = null;
-
-        if (appointmentSurveyUpdate != null) {
-            appointmentSurveyUpdate.setDescription(appointmentSurvey.getDescription());
-            appointmentSurveyUpdate.setTitle(appointmentSurvey.getTitle());
-            appointmentSurveyUpdate.setAppointmentOptions(appointmentSurvey.getAppointmentOptions());
+    public Survey update(Survey survey) {
+        Survey surveyUpdate = surveyRepository.findOne(survey.getId());
+        if (surveyUpdate != null) {
+            surveyUpdate.setDescription(survey.getDescription());
+            surveyUpdate.setTitle(survey.getTitle());
+            surveyUpdate.setAppointmentOptions(survey.getAppointmentOptions());
         }
-        updatedSurvey = surveyRepository.update(appointmentSurveyUpdate);
-        return updatedSurvey;
+        return surveyRepository.update(surveyUpdate);
     }
 
     @Transactional
-    public void delete(Long appointmentSurveyId) {
-        Survey appointmentSurvey = surveyRepository.findOne(appointmentSurveyId);
-        deleteAppointmentForSurvey(appointmentSurvey);
-        surveyRepository.delete(appointmentSurvey);
+    public void delete(Long surveyId) {
+        Survey survey = surveyRepository.findOne(surveyId);
+        surveyRepository.delete(survey);
     };
 
     private void deleteAppointmentForSurvey(Survey appointmentSurvey) {
 
-        List<Appointment> appointments = appointmentSurvey.getAppointmentOptions();
+        Set<Appointment> appointments = appointmentSurvey.getAppointmentOptions();
         for (Appointment appointment: appointments){
             appointmentRepository.delete(appointment);
         }
@@ -74,8 +71,9 @@ public class SurveyService {
 
     @Transactional
     public Survey endSurvey(Long idSurvey) {
-        Survey appointmentSurvey = surveyRepository.findOne(idSurvey);
-        return surveyRepository.endSurvey(appointmentSurvey);
+        Survey survey = surveyRepository.findOne(idSurvey);
+        //ativefalse
+        return surveyRepository.endSurvey(survey);
     }
 
    /* public Survey participate(Survey appointmentSurvey) {

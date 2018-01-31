@@ -25,10 +25,8 @@ public class SurveyRepository {
     }
 
     public Survey update(Survey survey) {
-       entityManager.merge(survey);
-        return survey;
+        return entityManager.merge(survey);
     }
-
 
     public void delete(Survey survey) {
         entityManager.remove(survey);

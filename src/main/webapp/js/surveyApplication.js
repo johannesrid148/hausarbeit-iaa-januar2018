@@ -19,3 +19,4 @@ application.config(function ($routeProvider) {
             redirectTo: '/survey'
         });
 });
+

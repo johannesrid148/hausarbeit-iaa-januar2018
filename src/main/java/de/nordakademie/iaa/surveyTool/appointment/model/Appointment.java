@@ -17,8 +17,11 @@ public class Appointment {
     private Date end;
 
     //@ManyToMany
-    @ElementCollection
+    @ElementCollection (fetch = FetchType.EAGER)
     private List<String> participants;
+
+    public Appointment() {
+    }
 
     //Constructor
     public Appointment(Date start, Date end, List<String> participants) {

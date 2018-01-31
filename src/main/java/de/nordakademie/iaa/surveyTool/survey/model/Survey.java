@@ -1,9 +1,11 @@
 package de.nordakademie.iaa.surveyTool.survey.model;
 
 import de.nordakademie.iaa.surveyTool.appointment.model.Appointment;
+import net.bytebuddy.agent.builder.AgentBuilder;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Survey")
@@ -16,23 +18,19 @@ public class Survey {
     private String title;
     private String description;
 
-    @OneToMany
-    private List<Appointment> appointmentOptions;
+    @OneToMany(cascade =CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.EAGER)
+    private Set<Appointment> appointmentOptions;
 
     private Boolean active;
 
    // @ManyToOne
     // pivate User creator;
-private String creator;
+    private String creator;
 
     //Constructor
 
-    public Survey(String title, String description, List<Appointment> appointmentOptions, String creator) {
-        this.title = title;
-        this.description = description;
-        this.appointmentOptions = appointmentOptions;
+    public Survey() {
         this.active = true;
-        this.creator = creator;
     }
 
     public Long getId() {
@@ -59,16 +57,17 @@ private String creator;
         this.description = description;
     }
 
-    public List<Appointment> getAppointmentOptions() {
-        return appointmentOptions;
-    }
-
-    public void setAppointmentOptions(List<Appointment> appointmentOptions) {
-        this.appointmentOptions = appointmentOptions;
-    }
 
     public Boolean getActive() {
         return active;
+    }
+
+    public Set<Appointment> getAppointmentOptions() {
+        return appointmentOptions;
+    }
+
+    public void setAppointmentOptions(Set<Appointment> appointmentOptions) {
+        this.appointmentOptions = appointmentOptions;
     }
 
     public void setActive(Boolean active) {

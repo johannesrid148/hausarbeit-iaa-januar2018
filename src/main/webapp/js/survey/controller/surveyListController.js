@@ -2,12 +2,12 @@
 application.controller('surveyListController', [
     '$scope',
     '$location',
-    'appointmentSurveyService',
+    'surveyService',
     function ($scope, $location, surveyService) {
         // get all professors
         surveyService.findAll()
             .then(function (response) {
-                $scope.appointmentSurveys = response.data;
+                $scope.surveys = response.data;
             });
 
         // function to navigate to the timetable

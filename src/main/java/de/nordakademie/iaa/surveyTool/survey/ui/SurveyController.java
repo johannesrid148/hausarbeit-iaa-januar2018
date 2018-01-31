@@ -39,28 +39,26 @@ public class SurveyController {
 
     //Anlegen mit Infodaten
     @RequestMapping(method = RequestMethod.POST)
-    public Survey saveBackSurvey(@RequestBody final Survey appointmentSurvey) {
-        return surveyService.create(appointmentSurvey);
+    public Survey saveBackSurvey(@RequestBody final Survey survey) {
+        return surveyService.create(survey);
     }
 
     //Anpassen
     @RequestMapping(method = RequestMethod.PUT)
-    public Survey updateSurvey(@RequestBody final Survey appointmentSurvey){
-      return  surveyService.update(appointmentSurvey);
+    public Survey updateSurvey(@RequestBody final Survey survey){
+      return  surveyService.update(survey);
     }
 
     //Löschen
-    @PostMapping
-    @RequestMapping("/delete")
-    public void deleteSurvey(@RequestParam("appointmentSurveyId") Long appointmentSurveyId){
-        surveyService.delete(appointmentSurveyId);
+    @RequestMapping(method = RequestMethod.DELETE, path = "/{surveyId}")
+    public void deleteSurvey(@PathVariable("surveyId") Long surveyId){
+        surveyService.delete(surveyId);
     }
 
     //Eine Umfrage beenden
     @GetMapping
-    @RequestMapping("endSurvey")
+    @RequestMapping("endSurvey/{id}")
     public Survey endSurvey(@PathVariable("id") Long idSurvey){
         return  surveyService.endSurvey(idSurvey);
     }
-
 }
