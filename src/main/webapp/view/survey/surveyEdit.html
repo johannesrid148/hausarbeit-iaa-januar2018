@@ -1,4 +1,3 @@
-
 <div class="container">
     <br/>
     <h2>Umfrage anlegen</h2>
@@ -16,27 +15,12 @@
         </div>
         <div class="form-group">
             <label class="control-label col-sm-3" style="text-align: left;">*Beschreibung:</label>
-            <input class="col-sm-2" name="description" type="text" ng-model="survey.description" required minlength="20">
+            <input class="col-sm-2" name="description" type="text" ng-model="survey.description" required
+                   minlength="20">
             <span ng-show="surveyEditForm.description.$dirty && surveyEditForm.description.$invalid">Die Beschreibung muss mindestens 20 enthalten.</span>
         </div>
-        <div class="form-group">
-            <label class="control-label col-sm-3" style="text-align: left;">Start-Datum:*</label>
-            <div required uib-datepicker ng-model="startdate" datepicker-options="datepickerOptions"
-                 ng-model-options="{ timezone: '-0000'}"></div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-3" style="text-align: left;">End-Datum:*</label>
-            <div required uib-datepicker ng-model="enddate" datepicker-options="datepickerOptions"
-                 ng-model-options="{ timezone: '-0000'}"></div>
-        </div>
-        <br/>
-        <div class="form-group">
-                <div required uib-datepicker ng-model="date"  datepicker-options="datepickerOptions"
-                     ng-model-options="{ timezone: '-0000'}" ng-repeat="date in dates">
-                </div>
-        <div/>
 
-        <button ng-click="addDate()">Datum hinzufügen</button>
+        <br/>
 
         <button style="margin-bottom:20px" type="button" class="btn btn-default" ng-disabled="surveyEditForm.$invalid"
                 ng-click="saveSurvey()"><span class="glyphicon glyphicon-floppy-disk"></span> Speichern

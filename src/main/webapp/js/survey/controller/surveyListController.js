@@ -16,5 +16,3 @@ application.controller('surveyListController', [
         };
     }
 ]);
-
-$scope.Login = function ()

@@ -12,8 +12,12 @@ application.config(function ($routeProvider) {
             templateUrl: 'view/survey/surveyEdit.html'
         })
         .when('/survey/:surveyID', {
-            controller: 'surveyListController',
-            templateUrl: 'view/survey/surveyList.html'
+        controller: 'surveyListController',
+        templateUrl: 'view/survey/surveyList.html'
+    })
+        .when('/appointmentCreate/title/:surveyTitle/desc/:surveyDescription', {
+            controller: 'appointmentCreateController',
+            templateUrl: 'view/appointment/appointmentCreate.html'
         })
         .otherwise({
             redirectTo: '/survey'
