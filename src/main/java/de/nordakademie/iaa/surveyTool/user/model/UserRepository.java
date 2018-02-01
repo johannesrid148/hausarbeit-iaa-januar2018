@@ -24,4 +24,7 @@ public class UserRepository {
         return entityManager.find(User.class, userId);
     }
 
+    //Specify for same lastName
+    public User findOneByName(String userName) { return entityManager.find(User.class, userName);
+    }
 }

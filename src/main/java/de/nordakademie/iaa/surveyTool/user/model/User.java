@@ -2,6 +2,8 @@ package de.nordakademie.iaa.surveyTool.user.model;
 
 import javax.persistence.*;
 
+
+
 @Entity
 @Table(name = "User")
 public class User {
@@ -15,12 +17,15 @@ public class User {
     private String email;
     private String password;
 
-    //Constructor
-    public User(String firstName, String lastName, String email, String password) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
+    public User() {
+    };
+
+    public Long getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Long userID) {
+        this.userID = userID;
     }
 
     public String getFirstName() {
@@ -37,14 +42,6 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public Long getUserID() {
-        return userID;
-    }
-
-    public void setUserID(Long userID) {
-        this.userID = userID;
     }
 
     public String getEmail() {

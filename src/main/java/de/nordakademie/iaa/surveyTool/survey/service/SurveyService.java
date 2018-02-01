@@ -46,9 +46,10 @@ public class SurveyService {
         return surveyRepository.findOne(idSurvey);
     }
 
+    /*Cannot deserialize instance of de.nordakademie.iaa.surveyTool.survey.model.Survey out of START_ARRAY token*/
     @Transactional
-    public Survey update(Survey survey, User user) throws ForbiddenUserException {
-        if (user.getLastName() == survey.getCreator()) {
+    public Survey update(Survey survey, String username) throws ForbiddenUserException {
+        if (username.equals(survey.getCreator())) {
             Survey surveyUpdate = surveyRepository.findOne(survey.getId());
             if (surveyUpdate != null) {
                 surveyUpdate.setDescription(survey.getDescription());
@@ -58,8 +59,7 @@ public class SurveyService {
             return surveyRepository.update(surveyUpdate);
         }
         else throw new ForbiddenUserException(
-                "Sie sind nicht Ersteller der Umfrage und können diese nicht ändern");
-
+                    "Sie sind nicht Ersteller der Umfrage und können diese nicht ändern");
     }
 
     @Transactional

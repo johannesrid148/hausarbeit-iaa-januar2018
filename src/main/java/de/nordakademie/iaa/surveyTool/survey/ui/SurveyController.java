@@ -47,8 +47,8 @@ public class SurveyController {
 
     //Anpassen
     @RequestMapping(method = RequestMethod.PUT)
-    public Survey updateSurvey(@RequestBody final Survey survey, @RequestParam User user) throws ForbiddenUserException {
-            return  surveyService.update(survey, user);
+    public Survey updateSurvey(@RequestBody final Survey survey, @RequestParam String username) throws ForbiddenUserException {
+            return  surveyService.update(survey, username);
         }
 
     //Löschen

@@ -1,5 +1,7 @@
 package de.nordakademie.iaa.surveyTool.user.ui;
 
+import de.nordakademie.iaa.surveyTool.exception.WrongAccessDataException;
+import de.nordakademie.iaa.surveyTool.survey.model.Survey;
 import de.nordakademie.iaa.surveyTool.user.model.User;
 import de.nordakademie.iaa.surveyTool.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,12 @@ public class UserController {
         return userService.findAll();
     }
 
+    //Einloggen
+    @RequestMapping(method = RequestMethod.GET)
+    public User checkLogin(@RequestParam String password, @RequestParam String username) throws WrongAccessDataException {
+        return (userService.checkAccess(password, username));
+    }
+
     //Erhalte einen einzelnen
     @RequestMapping(method = RequestMethod.GET, path = "/{id}")
     public User getUser(@PathVariable("id") Long userID){
@@ -35,4 +43,5 @@ public class UserController {
     }
 
 }
+
 
