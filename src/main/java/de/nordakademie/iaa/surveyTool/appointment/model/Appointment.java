@@ -20,14 +20,8 @@ public class Appointment {
     @ElementCollection (fetch = FetchType.EAGER)
     private List<String> participants;
 
-    public Appointment() {
-    }
-
     //Constructor
-    public Appointment(Date start, Date end, List<String> participants) {
-        this.start = start;
-        this.end = end;
-        this.participants = participants;
+    public Appointment() {
     }
 
     public Long getId() {

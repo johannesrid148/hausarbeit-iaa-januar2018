@@ -9,8 +9,8 @@ application.service('surveyService', [
         };
 
         // function to save a new survey
-        this.saveSurvey = function (survey) {
-            return $http.post('/api/backSurvey', survey);
+        this.saveSurvey = function (survey, appointmentOptions) {
+            return $http.post('/api/backSurvey', [survey, appointmentOptions ]);
         };
     }
 ]);

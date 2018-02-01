@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/backAppointment")
+
 public class AppointmentController {
 
     private final AppointmentService appointmentService;

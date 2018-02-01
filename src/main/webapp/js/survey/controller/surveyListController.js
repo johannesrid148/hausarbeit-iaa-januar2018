@@ -4,15 +4,17 @@ application.controller('surveyListController', [
     '$location',
     'surveyService',
     function ($scope, $location, surveyService) {
-        // get all professors
+        // get all surveys
         surveyService.findAll()
             .then(function (response) {
                 $scope.surveys = response.data;
             });
 
-        // function to navigate to the timetable
+        // function to navigate to the surveys
         $scope.getSurvey = function (surveyID) {
-            $location.path('/survey/' + appointmentSurveyID);
+            $location.path('/survey/' + surveyID);
         };
     }
 ]);
+
+$scope.Login = function ()

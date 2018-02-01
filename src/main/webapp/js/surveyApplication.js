@@ -11,7 +11,7 @@ application.config(function ($routeProvider) {
             controller: 'surveyEditController',
             templateUrl: 'view/survey/surveyEdit.html'
         })
-        .when('/survey/:appointmentSurveyID', {
+        .when('/survey/:surveyID', {
             controller: 'surveyListController',
             templateUrl: 'view/survey/surveyList.html'
         })

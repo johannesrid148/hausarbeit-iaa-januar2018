@@ -26,7 +26,7 @@ public class UserController {
     }
 
     //Einloggen
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET, path = "/{login}")
     public User checkLogin(@RequestParam String password, @RequestParam String username) throws WrongAccessDataException {
         return (userService.checkAccess(password, username));
     }

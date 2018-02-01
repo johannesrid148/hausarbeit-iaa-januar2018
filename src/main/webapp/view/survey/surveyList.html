@@ -7,8 +7,7 @@
                                      placeholder="Suche"/>
         </div>
         <div class="col-sm-6"></div>
-        <div class="col-sm-4"><a href="#!surveyEdit" class="btn btn-default" role="button"><span
-                class="glyphicon glyphicon-plus"></span> Umfrage anlegen</a></div>
+        <div class="col-sm-4"><a href="#!surveyEdit" class="btn btn-default" role="button"><span></span> Umfrage anlegen</a></div>
     </div>
     <br/>
     <table class="table">
@@ -18,19 +17,22 @@
             <th>ID</th>
             <th>Titel</th>
             <th>Beschreibung</th>
+            <th>Status</th>
             <th/>
         </tr>
         </thead>
         <tr ng-repeat="survey in surveys | filter:surveySearchQuery | orderBy:['creator']">
-            <td>{{appointmentSurvey.creator}}</td>
+            <td>{{survey.creator}}</td>
             <td>{{survey.id}}</td>
             <td>{{survey.title}}</td>
             <td>{{survey.description}}</td>
+            <td>{{survey.active}}</td>
             <td>
                 <button class="btn btn-default" type="button" ng-click="getSurvey(survey.id)">
-                    <span class="glyphicon glyphicon-calendar"></span>
+                    <span></span>
                 </button>
             </td>
         </tr>
     </table>
 </div>
+
