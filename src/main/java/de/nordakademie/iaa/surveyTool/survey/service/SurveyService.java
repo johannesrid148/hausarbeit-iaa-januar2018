@@ -33,12 +33,12 @@ public class SurveyService {
     }
 
     @Transactional
-    public Survey create(final Survey appointmentsurvey) {
-        for (Appointment appointment : appointmentsurvey.getAppointmentOptions()) {
+    public Survey create(final Survey survey) {
+        for (Appointment appointment : survey.getAppointmentOptions()) {
             appointmentRepository.create(appointment);
         }
-        surveyRepository.create(appointmentsurvey);
-        return appointmentsurvey;
+        surveyRepository.create(survey);
+        return survey;
     }
 
     @Transactional(readOnly = true)
@@ -80,6 +80,13 @@ public class SurveyService {
     public Survey endSurvey(Long idSurvey) {
         Survey survey = surveyRepository.findOne(idSurvey);
         return surveyRepository.endSurvey(survey);
+    }
+
+    public Survey attachAppointments(Long idSurvey, Object appointment) {
+        Survey surveyUpdate = surveyRepository.findOne(idSurvey);
+        if (surveyUpdate != null) {
+            //surveyUpdate.setAppointmentOptions(appointment);
+        }
     }
 
    /* public Survey participate(Survey appointmentSurvey) {

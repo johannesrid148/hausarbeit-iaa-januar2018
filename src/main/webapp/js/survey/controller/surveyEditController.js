@@ -21,27 +21,22 @@ application.controller('surveyEditController', [
         }
 
 
-        $scope.saveSurvey = function () {
+        var result = surveyService.saveSurvey($scope.survey)  //appointmentOptions
+            .then(function (response) {
+                if (response.status === 200) {
+                    if (response.data.errorMessage != null) {
+                        alert(response.data.errorMessage);
+                    }
+                    else {
+                        alert("Sie haben erfolgreich die Umfrage " + response.data.description
+                            + " angelegt.");
+                        $location.path('/appointmentCreate/survey/' + result.id);
+                    }
 
-            var title = $scope.survey.title;
-            var description = $scope.survey.description;
-            $location.path('/appointmentCreate/title/' + title + "/desc/" + description);
+                }
+            });
 
 
-            /* surveyService.saveSurvey($scope.survey)  //appointmentOptions
-                 .then(function (response) {
-                     if (response.status === 200) {
-                         if (response.data.errorMessage != null) {
-                             alert(response.data.errorMessage);
-                         }
-                         else {
-                             alert("Sie haben erfolgreich die Umfrage " + response.data.description
-                                 + " angelegt.");
-                             $location.path('/surveys')
-                         }
-                     }
-                 });*/
-        };
 
         var lectureDate = new Date($scope.startdate).getTime();
         var startDate = new Date($scope.enddate).getTime();

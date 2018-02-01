@@ -7,11 +7,8 @@
           <element id="module-output" name="surveyTool" />
         </element>
         <element id="directory" name="lib">
-          <element id="library" level="project" name="Maven: org.webjars:bootstrap:4.0.0" />
-          <element id="library" level="project" name="Maven: org.webjars.npm:popper.js:1.11.1" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.9.0" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-web:2.9.0" />
-          <element id="library" level="project" name="Maven: org.webjars:jquery:3.3.1" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-slf4j-impl:2.9.0" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.9.0" />
@@ -44,10 +41,6 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.3.11.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aspects:4.3.11.RELEASE" />
           <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.8.9" />
-          <element id="library" level="project" name="Maven: org.webjars:angular-ui-bootstrap:2.2.0" />
-          <element id="library" level="project" name="Maven: org.webjars.bower:angular-route:1.6.6" />
-          <element id="library" level="project" name="Maven: org.webjars.bower:angular:1.6.6" />
-          <element id="library" level="project" name="Maven: org.webjars:angularjs:1.6.8" />
         </element>
       </element>
       <element id="directory" name="META-INF">

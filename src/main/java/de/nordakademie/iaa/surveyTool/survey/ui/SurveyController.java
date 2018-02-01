@@ -45,6 +45,12 @@ public class SurveyController {
         return surveyService.create(survey);
     }
 
+    //Appointments bei Speichern hinzufügen
+    @RequestMapping(method = RequestMethod.PUT, path = "/{id}")
+    public Survey attachAppointmentsSurvey(@PathVariable("id") Long idSurvey, @RequestParam Object appointment){
+        return surveyService.attachAppointments(idSurvey, appointment);
+    }
+
     //Anpassen
     @RequestMapping(method = RequestMethod.PUT)
     public Survey updateSurvey(@RequestBody final Survey survey, @RequestParam String username) throws ForbiddenUserException {
