@@ -48,7 +48,7 @@ public class SurveyService {
 
     @Transactional
     public Survey update(Survey survey, User user) throws ForbiddenUserException {
-        if (user == survey.getCreator()) {
+        if (user.getLastName() == survey.getCreator()) {
             Survey surveyUpdate = surveyRepository.findOne(survey.getId());
             if (surveyUpdate != null) {
                 surveyUpdate.setDescription(survey.getDescription());
@@ -68,9 +68,9 @@ public class SurveyService {
         surveyRepository.delete(survey);
     }
 
-    private void deleteAppointmentForSurvey(Survey appointmentSurvey) {
+    private void deleteAppointmentForSurvey(Survey survey) {
 
-        Set<Appointment> appointments = appointmentSurvey.getAppointmentOptions();
+        Set<Appointment> appointments = survey.getAppointmentOptions();
         for (Appointment appointment : appointments) {
             appointmentRepository.delete(appointment);
         }
@@ -79,7 +79,6 @@ public class SurveyService {
     @Transactional
     public Survey endSurvey(Long idSurvey) {
         Survey survey = surveyRepository.findOne(idSurvey);
-        //ativefalse
         return surveyRepository.endSurvey(survey);
     }
 

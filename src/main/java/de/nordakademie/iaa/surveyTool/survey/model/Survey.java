@@ -23,8 +23,8 @@ public class Survey {
 
     private Boolean active;
 
-    // @ManyToOne
-    private User creator;
+
+    private String creator;
 
     //Constructor
 
@@ -73,11 +73,11 @@ public class Survey {
         this.active = active;
     }
 
-    public User getCreator() {
+    public String getCreator() {
         return creator;
     }
 
-    public void setCreator(User creator) {
+    public void setCreator(String creator) {
         this.creator = creator;
     }
 

@@ -16,7 +16,7 @@ public class Appointment {
     private Date start;
     private Date end;
 
-    //@ManyToMany
+
     @ElementCollection (fetch = FetchType.EAGER)
     private List<String> participants;
 
