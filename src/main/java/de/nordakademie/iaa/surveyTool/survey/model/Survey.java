@@ -1,7 +1,7 @@
 package de.nordakademie.iaa.surveyTool.survey.model;
 
 import de.nordakademie.iaa.surveyTool.appointment.model.Appointment;
-import net.bytebuddy.agent.builder.AgentBuilder;
+import de.nordakademie.iaa.surveyTool.user.model.User;
 
 import javax.persistence.*;
 import java.util.List;
@@ -18,14 +18,13 @@ public class Survey {
     private String title;
     private String description;
 
-    @OneToMany(cascade =CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Appointment> appointmentOptions;
 
     private Boolean active;
 
-   // @ManyToOne
-    // pivate User creator;
-    private String creator;
+    // @ManyToOne
+    private User creator;
 
     //Constructor
 
@@ -74,11 +73,11 @@ public class Survey {
         this.active = active;
     }
 
-    public String getCreator() {
+    public User getCreator() {
         return creator;
     }
 
-    public void setCreator(String creator) {
+    public void setCreator(User creator) {
         this.creator = creator;
     }
 

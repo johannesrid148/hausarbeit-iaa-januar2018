@@ -3,8 +3,10 @@ package de.nordakademie.iaa.surveyTool.survey.service;
 
 import de.nordakademie.iaa.surveyTool.appointment.model.Appointment;
 import de.nordakademie.iaa.surveyTool.appointment.model.AppointmentRepository;
+import de.nordakademie.iaa.surveyTool.exception.ForbiddenUserException;
 import de.nordakademie.iaa.surveyTool.survey.model.Survey;
 import de.nordakademie.iaa.surveyTool.survey.model.SurveyRepository;
+import de.nordakademie.iaa.surveyTool.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,7 +34,7 @@ public class SurveyService {
 
     @Transactional
     public Survey create(final Survey appointmentsurvey) {
-        for (Appointment appointment: appointmentsurvey.getAppointmentOptions()) {
+        for (Appointment appointment : appointmentsurvey.getAppointmentOptions()) {
             appointmentRepository.create(appointment);
         }
         surveyRepository.create(appointmentsurvey);
@@ -45,29 +47,34 @@ public class SurveyService {
     }
 
     @Transactional
-    public Survey update(Survey survey) {
-        Survey surveyUpdate = surveyRepository.findOne(survey.getId());
-        if (surveyUpdate != null) {
-            surveyUpdate.setDescription(survey.getDescription());
-            surveyUpdate.setTitle(survey.getTitle());
-            surveyUpdate.setAppointmentOptions(survey.getAppointmentOptions());
+    public Survey update(Survey survey, User user) throws ForbiddenUserException {
+        if (user == survey.getCreator()) {
+            Survey surveyUpdate = surveyRepository.findOne(survey.getId());
+            if (surveyUpdate != null) {
+                surveyUpdate.setDescription(survey.getDescription());
+                surveyUpdate.setTitle(survey.getTitle());
+                surveyUpdate.setAppointmentOptions(survey.getAppointmentOptions());
+            }
+            return surveyRepository.update(surveyUpdate);
         }
-        return surveyRepository.update(surveyUpdate);
+        else throw new ForbiddenUserException(
+                "Sie sind nicht Ersteller der Umfrage und können diese nicht ändern");
+
     }
 
     @Transactional
     public void delete(Long surveyId) {
         Survey survey = surveyRepository.findOne(surveyId);
         surveyRepository.delete(survey);
-    };
+    }
 
     private void deleteAppointmentForSurvey(Survey appointmentSurvey) {
 
         Set<Appointment> appointments = appointmentSurvey.getAppointmentOptions();
-        for (Appointment appointment: appointments){
+        for (Appointment appointment : appointments) {
             appointmentRepository.delete(appointment);
         }
-    };
+    }
 
     @Transactional
     public Survey endSurvey(Long idSurvey) {

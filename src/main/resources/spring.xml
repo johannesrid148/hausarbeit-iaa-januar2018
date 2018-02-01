@@ -36,4 +36,3 @@
     <mvc:annotation-driven/>
     <context:component-scan base-package="de.nordakademie.iaa.surveyTool"/>
 </beans>
-

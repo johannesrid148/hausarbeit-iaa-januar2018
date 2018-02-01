@@ -1,8 +1,10 @@
 package de.nordakademie.iaa.surveyTool.survey.ui;
 
 
+import de.nordakademie.iaa.surveyTool.exception.ForbiddenUserException;
 import de.nordakademie.iaa.surveyTool.survey.model.Survey;
 import de.nordakademie.iaa.surveyTool.survey.service.SurveyService;
+import de.nordakademie.iaa.surveyTool.user.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -45,9 +47,9 @@ public class SurveyController {
 
     //Anpassen
     @RequestMapping(method = RequestMethod.PUT)
-    public Survey updateSurvey(@RequestBody final Survey survey){
-      return  surveyService.update(survey);
-    }
+    public Survey updateSurvey(@RequestBody final Survey survey, @RequestParam User user) throws ForbiddenUserException {
+            return  surveyService.update(survey, user);
+        }
 
     //Löschen
     @RequestMapping(method = RequestMethod.DELETE, path = "/{surveyId}")
