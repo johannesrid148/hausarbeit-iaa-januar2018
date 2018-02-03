@@ -8,6 +8,10 @@ application.service('surveyService', [
             return $http.get('/api/backSurvey');
         };
 
+        this.findOne = function (surveyID) {
+            return $http.get('/api/backSurvey/' + surveyID);
+        };
+
         // function to save a new survey
         this.saveSurvey = function (survey) {
             return $http.post('/api/backSurvey', survey);

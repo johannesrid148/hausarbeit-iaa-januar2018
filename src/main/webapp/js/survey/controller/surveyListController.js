@@ -6,6 +6,8 @@ application.controller('surveyListController', [
     'surveyService',
     function ($scope, $location, surveyService) {
         // get all surveys
+
+
         surveyService.findAll()
             .then(function (response) {
                 $scope.surveys = response.data;
@@ -13,6 +15,7 @@ application.controller('surveyListController', [
 
         // function to navigate to the surveys
         $scope.getSurvey = function (surveyID) {
+            console.log(surveyID);
             $location.path('/survey/' + surveyID);
         };
     }

@@ -13,8 +13,8 @@ application.config(function ($routeProvider) {
             templateUrl: 'view/survey/surveyEdit.html'
         })
         .when('/survey/:surveyID', {
-        controller: 'surveyListController',
-        templateUrl: 'view/survey/surveyList.html'
+        controller: 'surveyDetailController',
+        templateUrl: 'view/survey/surveyDetail.html'
     })
         .when('/appointmentCreate/survey/:surveyID', {
             controller: 'appointmentCreateController',

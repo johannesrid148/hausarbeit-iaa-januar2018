@@ -10,7 +10,9 @@ application.service('appointmentService', [
 
         // function to save a new survey
         this.saveAppointment = function (appointment, id) {
-            return $http.put('/api/backSuvey/' + id, appointment);
+            console.log(appointment);
+            console.log(id);
+            return $http.put('api/backSurvey/' + id, appointment);
         };
     }
 ]);

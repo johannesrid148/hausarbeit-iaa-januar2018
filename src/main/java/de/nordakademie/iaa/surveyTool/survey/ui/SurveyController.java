@@ -50,7 +50,7 @@ public class SurveyController {
 
     //Appointments bei Speichern hinzufügen
     @RequestMapping(method = RequestMethod.PUT, path = "/{id}")
-    public Survey attachAppointmentsSurvey(@PathVariable("id") Long idSurvey, @RequestParam Set<Appointment> appointment) throws SurveyNotFoundException{
+    public Survey attachAppointmentsSurvey(@PathVariable("id") Long idSurvey, @RequestBody Set<Appointment> appointment) throws SurveyNotFoundException{
         return surveyService.attachAppointments(idSurvey, appointment);
     }
 

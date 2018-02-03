@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Anzeigen der Umfragen</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/navbar.css" rel="stylesheet"/>
+    <link href="css/common.css" rel="stylesheet"/>
+</head>
+<div class="container">
+    <br/>
+    <h2>Umfrage</h2>
+    <div class="row">
+        <div class="col-sm-2"><input class="form-control" type="text" ng-model="surveySearchQuery"
+                                     placeholder="Suche"/>
+        </div>
+        <div class="col-sm-6"></div>
+        <div class="col-sm-4"><a href="#!surveyEdit" class="btn btn-default" role="button"><span></span> Umfrage anlegen</a>
+        </div>
+    </div>
+    <br/>
+    <table class="table" ng-controller="surveyDetailController">
+        <thead>
+        <tr>
+            <th>Ersteller</th>
+            <th>ID</th>
+            <th>Titel</th>
+            <th>Beschreibung</th>
+            <th>Status</th>
+            <th/>
+        </tr>
+        </thead>
+        <tr>
+            <td>{{surveyOne.creator}}</td>
+            <td>{{surveyOne.id}}</td>
+            <td>{{surveyOne.title}}</td>
+            <td>{{surveyOne.description}}</td>
+            <td>{{surveyOne.active}}</td>
+            <td>
+                <button class="btn btn-default" type="button" ng-click="getSurvey(survey.id)">
+                    <span></span>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
