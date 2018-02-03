@@ -21,35 +21,55 @@
 
         <div class="row">
             <div class="col-sm-4">
-                <label>Beginn:</label>
+                <label>Stundenplan von Montag, den:</label>
                 <div required uib-datepicker ng-model="appointment.start" datepicker-options="datepickerOptionsMonday"
                      ng-model-options="{ timezone: '-0000'}"></div>
             </div>
+            <input ng-model="appointment.starttime">
             <div class="col-sm-1"></div>
             <div class="col-sm-4">
-                <label>Ende: </label>
+                <label>bis Sonntag, den: </label>
                 <div required uib-datepicker ng-model="appointment.end" datepicker-options="datepickerOptionsSunday"
                      ng-model-options="{ timezone: '-0000'}"></div>
             </div>
-        </div>
+            <input ng-model="appointment.endtime">
 
-        <button style="margin-bottom:20px" type="button" class="btn btn-default"
-                ng-disabled="appointmentCreateForm.$invalid"
-                ng-click="saveAppointment()"><span class="glyphicon glyphicon-floppy-disk"></span> Speichern
-        </button>
-        <form/>
+</div>
 
 
-        <!--        <div class="row">
-        <div class="col-sm-4">
-            <label>Stundenplan von Montag, den:</label>
-            <div required uib-datepicker ng-model="appointment.start" datepicker-options="datepickerOptionsMonday"
-                 ng-model-options="{ timezone: '-0000'}"></div>
-        </div>
-        <div class="col-sm-1"></div>
-        <div class="col-sm-4">
-            <label>bis Sonntag, den: </label>
-            <div required uib-datepicker ng-model="appointment.end" datepicker-options="datepickerOptionsSunday"
-                 ng-model-options="{ timezone: '-0000'}"></div>
-        </div>-->
+<button style="margin-bottom:20px" type="button" class="btn btn-default"
+        ng-disabled="appointmentCreateForm.$invalid"
+        ng-click="saveAppointment()"><span class="glyphicon glyphicon-floppy-disk"></span> Speichern
+</button>
+<form/>
+
+<!-- <div class="container">
+-->
+
+<!--        <div class="row">
+<div class="col-sm-4">
+    <label>Stundenplan von Montag, den:</label>
+    <div required uib-datepicker ng-model="appointment.start" datepicker-options="datepickerOptionsMonday"
+         ng-model-options="{ timezone: '-0000'}"></div>
+</div>
+<div class="col-sm-1"></div>
+<div class="col-sm-4">
+    <label>bis Sonntag, den: </label>
+    <div required uib-datepicker ng-model="appointment.end" datepicker-options="datepickerOptionsSunday"
+         ng-model-options="{ timezone: '-0000'}"></div>
+</div>-->
+
+<!--         <div class="row">
+    <div class="col-sm-4">
+        <label>Beginn:</label>
+        <div required uib-datepicker ng-model="appointment.start" datepicker-options="datepickerOptionsMonday"
+             ng-model-options="{ timezone: '-0000'}"></div>
     </div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4">
+        <label>Ende: </label>
+        <div required uib-datepicker ng-model="appointment.end" datepicker-options="datepickerOptionsSunday"
+             ng-model-options="{ timezone: '-0000'}"></div>
+    </div>
+</div>-->
+</div>

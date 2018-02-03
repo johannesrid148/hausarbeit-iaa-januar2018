@@ -1,6 +1,7 @@
 package de.nordakademie.iaa.surveyTool.appointment.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -12,7 +13,8 @@ public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    private String starttime;
+    private String endtime;
     private Date start;
     private Date end;
 
@@ -20,8 +22,8 @@ public class Appointment {
     @ElementCollection (fetch = FetchType.EAGER)
     private List<String> participants;
 
-    //Constructor
     public Appointment() {
+        this.participants = new ArrayList<>();
     }
 
     public Long getId() {

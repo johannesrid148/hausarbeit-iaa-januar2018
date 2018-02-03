@@ -15,7 +15,6 @@ application.controller('surveyEditController', [
 
         $scope.saveSurvey = function () {
             $scope.survey.creator = "Testcreator";
-            $scope.survey.appointmentOptions = new Array();
             surveyService.saveSurvey($scope.survey)  //appointmentOptions
                 .then(function (response) {
                     if (response.status === 200) {

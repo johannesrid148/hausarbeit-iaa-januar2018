@@ -7,11 +7,15 @@ import de.nordakademie.iaa.surveyTool.exception.SurveyNotFoundException;
 import de.nordakademie.iaa.surveyTool.survey.model.Survey;
 import de.nordakademie.iaa.surveyTool.survey.service.SurveyService;
 import de.nordakademie.iaa.surveyTool.user.model.User;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import java.lang.reflect.Array;
+import java.util.*;
 
 @RestController
 @RequestMapping("/backSurvey")
@@ -50,9 +54,13 @@ public class SurveyController {
 
     //Appointments bei Speichern hinzufügen
     @RequestMapping(method = RequestMethod.PUT, path = "/{id}")
-    public Survey attachAppointmentsSurvey(@PathVariable("id") Long idSurvey, @RequestBody Set<Appointment> appointment) throws SurveyNotFoundException{
+    public Survey attachAppointmentsSurvey(@PathVariable("id") Long idSurvey, @RequestBody Appointment appointment) throws SurveyNotFoundException{
+  //  final String JSON_DATA = appointmentStr;
+   // final JSONObject obj = new JSONObject(JSON_DATA);
+    //Appointment appointment = new Appointment(Collections.singletonList("jfdlkf"));
+   // appointment.setStart(obj.getDate("start"));
         return surveyService.attachAppointments(idSurvey, appointment);
-    }
+}
 
     //Anpassen
     @RequestMapping(method = RequestMethod.PUT)

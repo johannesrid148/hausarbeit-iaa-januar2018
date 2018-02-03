@@ -4,6 +4,7 @@ import de.nordakademie.iaa.surveyTool.appointment.model.Appointment;
 import de.nordakademie.iaa.surveyTool.user.model.User;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 /*Klasse geschrieben von Max Schumann*/
@@ -19,7 +20,7 @@ public class Survey {
     private String description;
 
     @OneToMany(cascade = CascadeType.REMOVE, orphanRemoval = true, fetch = FetchType.EAGER)
-    private Set<Appointment> appointmentOptions;
+    private List<Appointment> appointmentOptions;
 
     private Boolean active;
 
@@ -31,6 +32,7 @@ public class Survey {
     public Survey()
     {
         this.active = true;
+        this.appointmentOptions = new ArrayList<Appointment>();
     }
 
     public Long getId() {
@@ -62,11 +64,15 @@ public class Survey {
         return active;
     }
 
-    public Set<Appointment> getAppointmentOptions() {
+    public List<Appointment> getAppointmentOptions() {
         return appointmentOptions;
     }
 
-    public void setAppointmentOptions(Set<Appointment> appointmentOptions) {
+    public void addAppointmentOptions(Appointment appointment){
+    this.appointmentOptions.add(appointment);
+    }
+
+    public void setAppointmentOptions(List<Appointment> appointmentOptions) {
         this.appointmentOptions = appointmentOptions;
     }
 

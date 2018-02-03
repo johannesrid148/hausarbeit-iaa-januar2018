@@ -2,6 +2,7 @@ package de.nordakademie.iaa.surveyTool.appointment.ui;
 
 import de.nordakademie.iaa.surveyTool.appointment.model.Appointment;
 import de.nordakademie.iaa.surveyTool.appointment.service.AppointmentService;
+import de.nordakademie.iaa.surveyTool.survey.model.Survey;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,11 @@ public class AppointmentController {
     @Autowired
     public AppointmentController(final AppointmentService appointmentService) {
         this.appointmentService = appointmentService;
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public Appointment saveBackAppointment(@RequestBody final Appointment appointment) {
+        return appointmentService.create(appointment);
     }
 
     @RequestMapping(method = RequestMethod.GET)

@@ -20,8 +20,5 @@ application.config(function ($routeProvider) {
             controller: 'appointmentCreateController',
             templateUrl: 'view/appointment/appointmentCreate.html'
         })
-        .otherwise({
-            redirectTo: '/survey'
-        });
 });
 

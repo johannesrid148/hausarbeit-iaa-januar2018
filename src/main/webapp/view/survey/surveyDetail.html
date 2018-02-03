@@ -4,7 +4,7 @@
     <title>Anzeigen der Umfragen</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/bootstrap.css" rel="stylesheet"/>
     <link href="css/navbar.css" rel="stylesheet"/>
     <link href="css/common.css" rel="stylesheet"/>
 </head>
@@ -28,6 +28,7 @@
             <th>Titel</th>
             <th>Beschreibung</th>
             <th>Status</th>
+            <th>Termin</th>
             <th/>
         </tr>
         </thead>
@@ -37,6 +38,7 @@
             <td>{{surveyOne.title}}</td>
             <td>{{surveyOne.description}}</td>
             <td>{{surveyOne.active}}</td>
+            <td>{{surveyOne.appointmentOptions}}</td>
             <td>
                 <button class="btn btn-default" type="button" ng-click="getSurvey(survey.id)">
                     <span></span>

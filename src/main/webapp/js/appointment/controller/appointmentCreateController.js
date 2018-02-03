@@ -12,8 +12,9 @@ application.controller('appointmentCreateController', [
 
         var surveyID = $routeParams.surveyID;
 
+
+
         $scope.saveAppointment = function () {
-            $scope.appointment.participants = new Array();
             appointmentService.saveAppointment($scope.appointment, surveyID)
                 .then(function (response) {
                     if (response.status === 200) {
