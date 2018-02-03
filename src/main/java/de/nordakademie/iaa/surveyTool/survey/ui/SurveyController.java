@@ -1,7 +1,9 @@
 package de.nordakademie.iaa.surveyTool.survey.ui;
 
 
+import de.nordakademie.iaa.surveyTool.appointment.model.Appointment;
 import de.nordakademie.iaa.surveyTool.exception.ForbiddenUserException;
+import de.nordakademie.iaa.surveyTool.exception.SurveyNotFoundException;
 import de.nordakademie.iaa.surveyTool.survey.model.Survey;
 import de.nordakademie.iaa.surveyTool.survey.service.SurveyService;
 import de.nordakademie.iaa.surveyTool.user.model.User;
@@ -9,11 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/backSurvey")
 public class SurveyController {
-
+    /*Klasse geschrieben von Max Schumann*/
     private final SurveyService surveyService;
 
     @Autowired
@@ -47,7 +50,7 @@ public class SurveyController {
 
     //Appointments bei Speichern hinzufügen
     @RequestMapping(method = RequestMethod.PUT, path = "/{id}")
-    public Survey attachAppointmentsSurvey(@PathVariable("id") Long idSurvey, @RequestParam Object appointment){
+    public Survey attachAppointmentsSurvey(@PathVariable("id") Long idSurvey, @RequestParam Set<Appointment> appointment) throws SurveyNotFoundException{
         return surveyService.attachAppointments(idSurvey, appointment);
     }
 

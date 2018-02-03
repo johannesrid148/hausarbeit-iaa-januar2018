@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Anlegen einer Umfrage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/navbar.css" rel="stylesheet"/>
+    <link href="css/common.css" rel="stylesheet"/>
+</head>
 <div class="container">
     <br/>
     <h2>Umfrage anlegen</h2>
@@ -19,7 +29,8 @@
                    minlength="20">
             <span ng-show="surveyEditForm.description.$dirty && surveyEditForm.description.$invalid">Die Beschreibung muss mindestens 20 enthalten.</span>
         </div>
-
+        <input class="hiddendiv" ng-model="survey.creator">
+        <input class="hiddendiv" ng-model="survey.appointmentOptions">
         <br/>
 
         <button style="margin-bottom:20px" type="button" class="btn btn-default" ng-disabled="surveyEditForm.$invalid"

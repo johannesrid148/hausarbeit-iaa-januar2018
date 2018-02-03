@@ -1,4 +1,5 @@
 'use strict';
+/*Klasse geschrieben von Max Schumann*/
 application.controller('surveyListController', [
     '$scope',
     '$location',

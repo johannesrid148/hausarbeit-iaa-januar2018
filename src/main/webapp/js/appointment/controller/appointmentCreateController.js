@@ -1,6 +1,7 @@
 /*
  * Controller for the surveyEdit view
  */
+/*Klasse geschrieben von Max Schumann*/
 'use strict';
 application.controller('appointmentCreateController', [
     '$scope',
@@ -11,21 +12,21 @@ application.controller('appointmentCreateController', [
 
         var id = $routeParams.surveyID;
 
-
-        appointmentService.saveAppointment($scope.appointment, id)
-            .then(function (response) {
-                if (response.status === 200) {
-                    if (response.data.errorMessage != null) {
-                        alert(response.data.errorMessage);
+        $scope.saveAppointment = function () {
+            appointmentService.saveAppointment($scope.appointment, id)
+                .then(function (response) {
+                    if (response.status === 200) {
+                        if (response.data.errorMessage != null) {
+                            alert(response.data.errorMessage);
+                        }
+                        else {
+                            alert("Sie haben erfolgreich die Umfrage " + response.data.description
+                                + " angelegt.");
+                            $location.path('/surveys')
+                        }
                     }
-                    else {
-                        alert("Sie haben erfolgreich die Umfrage " + response.data.description
-                            + " angelegt.");
-                        $location.path('/surveys')
-                    }
-                }
-            })
-
+                })
+        }
 
     }
 ])

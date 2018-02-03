@@ -1,4 +1,4 @@
-
+/*Klasse geschrieben von Max Schumann*/
 'use strict';
 application.service('appointmentService', [
     '$http',
@@ -10,8 +10,7 @@ application.service('appointmentService', [
 
         // function to save a new survey
         this.saveAppointment = function (appointment, id) {
-
-            return $http.post('/api/backSuvey/' + id, appointment);
+            return $http.put('/api/backSuvey/' + id, appointment);
         };
     }
 ]);

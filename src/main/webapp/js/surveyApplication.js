@@ -1,4 +1,5 @@
 'use strict';
+/*Klasse geschrieben von Max Schumann*/
 const application = angular.module('surveyApplication', ['ngRoute', 'ui.bootstrap']);
 
 application.config(function ($routeProvider) {

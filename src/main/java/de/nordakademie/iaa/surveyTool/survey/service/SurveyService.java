@@ -4,6 +4,7 @@ package de.nordakademie.iaa.surveyTool.survey.service;
 import de.nordakademie.iaa.surveyTool.appointment.model.Appointment;
 import de.nordakademie.iaa.surveyTool.appointment.model.AppointmentRepository;
 import de.nordakademie.iaa.surveyTool.exception.ForbiddenUserException;
+import de.nordakademie.iaa.surveyTool.exception.SurveyNotFoundException;
 import de.nordakademie.iaa.surveyTool.survey.model.Survey;
 import de.nordakademie.iaa.surveyTool.survey.model.SurveyRepository;
 import de.nordakademie.iaa.surveyTool.user.model.User;
@@ -13,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Set;
-
+/*Klasse geschrieben von Max Schumann*/
 @Service
 public class SurveyService {
 
@@ -82,11 +83,15 @@ public class SurveyService {
         return surveyRepository.endSurvey(survey);
     }
 
-    public Survey attachAppointments(Long idSurvey, Object appointment) {
+
+    @Transactional
+    public Survey attachAppointments(Long idSurvey, Set<Appointment> appointment) throws SurveyNotFoundException {
         Survey surveyUpdate = surveyRepository.findOne(idSurvey);
         if (surveyUpdate != null) {
-            //surveyUpdate.setAppointmentOptions(appointment);
+            surveyUpdate.setAppointmentOptions(appointment);
+            return surveyUpdate;
         }
+        else throw new SurveyNotFoundException("Diese Umfrage wurde in der Datenbank nicht gefunden");
     }
 
    /* public Survey participate(Survey appointmentSurvey) {

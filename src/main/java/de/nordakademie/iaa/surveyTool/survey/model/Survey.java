@@ -6,7 +6,7 @@ import de.nordakademie.iaa.surveyTool.user.model.User;
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
-
+/*Klasse geschrieben von Max Schumann*/
 @Entity
 @Table(name = "Survey")
 public class Survey {
@@ -28,7 +28,8 @@ public class Survey {
 
     //Constructor
 
-    public Survey() {
+    public Survey()
+    {
         this.active = true;
     }
 

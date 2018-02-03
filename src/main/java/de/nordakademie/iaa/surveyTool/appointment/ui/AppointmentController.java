@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
+/*Klasse geschrieben von Max Schumann*/
 @RestController
 @RequestMapping("/backAppointment")
 
