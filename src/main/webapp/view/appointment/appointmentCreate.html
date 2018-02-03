@@ -18,18 +18,22 @@
         </button>
     </p>
     <form class="form-horizontal" name="appointmentCreateForm" ng-controller="appointmentCreateController">
-        
-        <div class="form-group">
-            <label class="control-label col-sm-3" style="text-align: left;">Start-Datum:*</label>
-            <div required uib-datepicker ng-model="appointment.startdate" datepicker-options="datepickerOptions"
-                 ng-model-options="{ timezone: '-0000'}"></div>
+
+        <div class="row">
+            <div class="col-sm-4">
+                <label>Stundenplan von Montag, den:</label>
+                <div required uib-datepicker ng-model="appointment.start" datepicker-options="datepickerOptionsMonday"
+                     ng-model-options="{ timezone: '-0000'}"></div>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+                <label>bis Sonntag, den: </label>
+                <div required uib-datepicker ng-model="appointment.end" datepicker-options="datepickerOptionsSunday"
+                     ng-model-options="{ timezone: '-0000'}"></div>
+            </div>
         </div>
-        <div class="form-group">
-            <label class="control-label col-sm-3" style="text-align: left;">End-Datum:*</label>
-            <div required uib-datepicker ng-model="appointment.enddate" datepicker-options="datepickerOptions"
-                 ng-model-options="{ timezone: '-0000'}"></div>
-        </div>
-        <button style="margin-bottom:20px" type="button" class="btn btn-default" ng-disabled="appointmentCreateForm.$invalid"
+        <button style="margin-bottom:20px" type="button" class="btn btn-default"
+                ng-disabled="appointmentCreateForm.$invalid"
                 ng-click="saveAppointment()"><span class="glyphicon glyphicon-floppy-disk"></span> Speichern
         </button>
         <form/>

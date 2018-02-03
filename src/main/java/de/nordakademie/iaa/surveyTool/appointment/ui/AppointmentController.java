@@ -27,8 +27,8 @@ public class AppointmentController {
         return appointmentService.findAll();
     }
 
-    @RequestMapping(method = RequestMethod.POST)
+    /*@RequestMapping(method = RequestMethod.POST)
     public Appointment saveAppointment(@RequestBody final Appointment appointment) {
         return appointmentService.create(appointment);
-    }
+    }*/
 }
