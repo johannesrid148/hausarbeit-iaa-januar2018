@@ -1,3 +1,13 @@
 .fa-close {
     cursor: pointer;
 }
+.table-hover > tbody > tr:hover {
+    cursor: pointer;
+}
+
+table.calendar > tbody > tr > td > div {
+    background-color: #E0E0E0;
+    padding: 5px;
+    margin-bottom: 10px;
+
+}

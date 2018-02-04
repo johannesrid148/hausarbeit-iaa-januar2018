@@ -20,5 +20,21 @@ application.config(function ($routeProvider) {
             controller: 'appointmentCreateController',
             templateUrl: 'view/appointment/appointmentCreate.html'
         })
+        .when('/users', {
+            controller: 'userListController',
+            templateUrl: 'view/user/userList.html'
+        })
+        .when('/userEdit', {
+            controller: 'userEditController',
+            templateUrl: 'view/user/userEdit.html'
+        })
+        .when('/userLogin', {
+            controller: 'userLoginController',
+            templateUrl: 'view/user/userLogin.html'
+        })
+        .when('/userPage', {
+            controller: 'userPageController',
+            templateUrl: 'view/user/userPage.html'
+        })
 });
 

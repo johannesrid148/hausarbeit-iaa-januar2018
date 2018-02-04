@@ -1,31 +1,72 @@
 package de.nordakademie.iaa.surveyTool.user.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
-
-
 @Entity
-@Table(name = "User")
+@Table(name = "USER")
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long userID;
+    @Column
+    private Long id;
 
-    private String firstName;
-    private String lastName;
-    private String email;
+    @Column
+    private String kennung;
+
+    @Column
     private String password;
 
-    public User() {
-    };
+    @Column
+    private String firstName;
 
-    public Long getUserID() {
-        return userID;
+    @Column
+    private String lastName;
+
+    @Column
+    private String mail;
+
+    @Column
+    private Boolean loggedIn;
+
+   /* public User(String kennung, String password, String firstName, String lastName, String mail) {
+        this.kennung = kennung;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mail = mail;
+        this.loggedIn=false;
+    }*/
+    /*public User() {
+    }*/
+
+    public Long getId() {
+        return id;
     }
 
-    public void setUserID(Long userID) {
-        this.userID = userID;
+    public String getKennung() {
+        return kennung;
+    }
+
+    public void setKennung(String kennung) {
+        this.kennung = kennung;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getFirstName() {
@@ -44,19 +85,19 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getMail() {
+        return mail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
-    public String getPassword() {
-        return password;
+    public Boolean getLoggedIn() {
+        return loggedIn;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setLoggedIn(Boolean loggedIn) {
+        this.loggedIn = loggedIn;
     }
 }

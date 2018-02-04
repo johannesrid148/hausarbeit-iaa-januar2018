@@ -86,11 +86,14 @@ public class SurveyService {
 
 
     @Transactional
-    public Survey attachAppointments(Long idSurvey, Appointment appointment) throws SurveyNotFoundException {
+    public Survey attachAppointments(Long idSurvey, List<Appointment> appointment) throws SurveyNotFoundException {
         Survey surveyUpdate = surveyRepository.findOne(idSurvey);
         if (surveyUpdate != null) {
-            appointmentRepository.create(appointment);
-            surveyUpdate.addAppointmentOptions(appointment);
+            for (Appointment i: appointment)
+             {  appointmentRepository.create(i);
+                surveyUpdate.addAppointmentOptions(i);
+             }
+
             return surveyUpdate;
         }
         else throw new SurveyNotFoundException("Diese Umfrage wurde in der Datenbank nicht gefunden");

@@ -5,8 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/bootstrap-timepicker.css" rel="stylesheet"/>
     <link href="css/navbar.css" rel="stylesheet"/>
     <link href="css/common.css" rel="stylesheet"/>
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
+    <script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="js/lib/jquery-3.3.1.min.js"></script>
 </head>
 <div class="container"></div>
     <br/>
@@ -18,15 +23,12 @@
         </button>
     </p>
     <form class="form-horizontal" name="appointmentCreateForm" ng-controller="appointmentCreateController">
-       <!-- <fieldset  data-ng-repeat="choice in choices">
-            <input type="text" ng-model="choice.name" name="" placeholder="Enter mobile number">
-            <button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
-        </fieldset>-->
         <fieldset class="row" ng-repeat="choice in choices">
             <div class="col-sm-4">
                 <label>Start</label>
                 <div required uib-datepicker ng-model="choice.start" class = "divdate"
                      ng-model-options="{ timezone: '-0000'}"></div>
+                <span> Bitte Startzeit eingeben</span>
                 <input class = "datefield" ng-model="choice.starttime">
             </div>
 
@@ -34,25 +36,17 @@
                 <label>bis Sonntag, den: </label>
                 <div required uib-datepicker ng-model="choice.end"  class = "divdate"
                      ng-model-options="{ timezone: '-0000'}"></div>
+                <span> Bitte Endzeit eingeben</span>
                 <input class = "datefield" ng-model="choice.endtime">
             </div>
 
             <button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
         </fieldset>
         <button class="addfields" ng-click="addNewChoice()">Add fields</button>
-        <form/>
+    <form/>
 
-        <!--             <div ng-repeat="item in details" class="input-group">
-                <input ng-model="item.parameterValue" type="text" class="form-control"
-                   id="datePickerItem_{{$index}}" datepicker-popup="shortDate"
-                   is-open="opened[$index]" datepicker-options="dateOptions" current-text="Today"
-                   clear-text="Clear" close-text="Close" ng-readonly="false"/>
-                    <span class="input-group-btn">
-                      <button type="button" class="btn btn-default" ng-click="openDatePicker($event, $index)">
-                          <i class="glyphicon glyphicon-calendar"></i>
-                      </button>
-                    </span>
-            </div>-->
+
+
 
 
         <button style="margin-bottom:20px" type="button" class="btn btn-default"

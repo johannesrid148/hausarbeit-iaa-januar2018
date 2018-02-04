@@ -1,10 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="container">
+    <br/>
+    <h2>User registrieren</h2>
+    <br/>
+    <p>
+        <button type="button" class="btn btn-default" ng-click="goBack()"><span
+                class="glyphicon glyphicon-chevron-left"></span> Zurück
+        </button>
+    </p>
 
-</body>
-</html>
+    <form class="form-horizontal" name="userEditForm" ng-controller="userEditController">
+        <div class="form-group">
+            <label class="control-label col-sm-3" style="text-align: left;">*Benutzerkennung:</label>
+            <input name="kennung" type="text" ng-model="user.kennung" required pattern="[A-Z0-9a-z ]+">
+            <span ng-show="userEditForm.kennung.$dirty && userEditForm.kennung.$invalid">Die Benutzerkennung darf nur Buchstaben und Zahlen enthalten</span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" style="text-align: left;">*Passwort:</label>
+            <input name="password" type="text" ng-model="user.password" required pattern=".+">
+            <span ng-show="userEditForm.password.$dirty && userEditForm.password.$invalid">Geben Sie ein Passwort ein</span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" style="text-align: left;">*Vorname:</label>
+            <input name="firstName" type="text" ng-model="user.firstName" required pattern="[A-Za-z-üäößÀ-ÿ]+">
+            <span ng-show="userEditForm.firstName.$dirty && userEditForm.firstName.$invalid">Der Vorname darf nur Buchstaben enthalten.</span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" style="text-align: left;">*Nachname:</label>
+            <input name="lastName" type="text" ng-model="user.lastName" required pattern="[A-Za-z-üäößÀ-ÿ]+">
+            <span ng-show="userEditForm.lastName.$dirty && userEditForm.lastName.$invalid">Der Nachname darf nur Buchstaben enthalten.</span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" style="text-align: left;">*Email:</label>
+            <input name="mail" type="text" ng-model="user.mail" required pattern="[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,64}">
+            <span ng-show="userEditForm.mail.$dirty && userEditForm.mail.$invalid">Bitte geben sie eine gültige E-mail an!</span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" style="text-align: left;">*LoggedIn:</label>
+            <input name="loggedIn" type="checkbox" ng-model="user.loggedIn" ng-value="false" disabled>
+        </div>
+
+        <br/>
+
+        <button style="margin-bottom:20px" type="button" class="btn btn-default" ng-disabled="userEditForm.$invalid"
+                ng-click="saveUser()"><span class="glyphicon glyphicon-floppy-disk"></span> Registrieren
+        </button>
+        <p>* Pflichtangabe</p>
+    </form>
+</div>

@@ -24,20 +24,19 @@ application.controller('appointmentCreateController', [
             $scope.choices.splice(lastItem);
         };
 
-        $scopte.appoinmentlist = new Array();
-        for (var i = 1; i <= $scope.choices.length; i++){
+
+       /* for (var i = 1; i <= $scope.choices.length; i++){
             $scope.appoinmentlist.push($scope.appointment)  ;
-        }
+        }*/
 
         $scope.saveAppointment = function () {
-            console.log("Choices: " + $scope.choices);
+            $scope.appoinmentlist = [""];
             for (var i in $scope.choices){
-                console.log($scope.appointmentlist[i].start = i.start);
-                ($scope.appointmentlist[i].end = i.end);
-                ($scope.appointmentlist[i].endtime = i.endtime);
-                ($scope.appointmentlist[i].starttime = i.starttime);
+                ($scope.appointmentlist.push(i.start));
+                ($scope.appointmentlist.push(i.end));
+                ($scope.appointmentlist.push(i.endtime));
+                ($scope.appointmentlist.push(i.starttime));
             }
-            console.log("AL: " + $scope.appointmentlist);
 
             appointmentService.saveAppointment($scope.appointmentlist, surveyID)
                 .then(function (response) {

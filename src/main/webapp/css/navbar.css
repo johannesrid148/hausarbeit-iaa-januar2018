@@ -28,3 +28,47 @@
 .fa-close {
     cursor: pointer;
 }
+
+.navbar {
+    background-color: #1a53ff;
+    colort: white;
+    margin: 5px;
+}
+
+.navbar-brand {
+    color: white
+}
+
+.navbar-brand:hover {
+    color: white;
+}
+
+.navbar-brand:focus {
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #8080ff;
+
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover, li a:focus {
+    background-color: #424e52;
+    color: white;
+}

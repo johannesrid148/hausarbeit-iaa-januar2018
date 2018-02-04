@@ -1,0 +1,24 @@
+<div class="container">
+    <br/>
+    <h2>Herzlich Willkommen beim SurveyTool.</h2>
+    <br/>
+
+    <form class="form-horizontal" name="loginForm" ng-controller="userLoginController">
+        <div class="form-group">
+            <label class="control-label col-sm-3" style="text-align: left;">Username:</label>
+            <input class="col-sm-2" name="enteredKennung" type="text" ng-model="user.enteredKennung" required pattern="[A-Z0-9a-z ]+">
+            <span ng-show="loginForm.enteredKennung.$dirty && loginForm.enteredKennung.$invalid">Die Benutzerkennung darf nur Buchstaben und Zahlen enthalten</span>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3" style="text-align: left;">Passwort:</label>
+            <input class="col-sm-2" name="enteredPassword" type="text" ng-model="user.enteredPassword" required pattern="[A-Z0-9a-z .]+">
+            <span ng-show="loginForm.enteredPassword.$dirty && loginForm.enteredPassword.$invalid">"Geben Sie ein Passwort ein"</span>
+        </div>
+
+        <br/>
+
+        <button style="margin-bottom:20px" type="button" class="btn btn-default" ng-disabled="loginForm.$invalid"
+                ng-click="login()"><span class="glyphicon glyphicon-floppy-disk"></span> Anmelden
+        </button>
+    </form>
+</div>

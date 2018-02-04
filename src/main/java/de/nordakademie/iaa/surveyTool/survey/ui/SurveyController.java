@@ -54,7 +54,7 @@ public class SurveyController {
 
     //Appointments bei Speichern hinzufügen
     @RequestMapping(method = RequestMethod.PUT, path = "/{id}")
-    public Survey attachAppointmentsSurvey(@PathVariable("id") Long idSurvey, @RequestBody Appointment appointment) throws SurveyNotFoundException{
+    public Survey attachAppointmentsSurvey(@PathVariable("id") Long idSurvey, @RequestBody List<Appointment> appointment) throws SurveyNotFoundException{
   //  final String JSON_DATA = appointmentStr;
    // final JSONObject obj = new JSONObject(JSON_DATA);
     //Appointment appointment = new Appointment(Collections.singletonList("jfdlkf"));

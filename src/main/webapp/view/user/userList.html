@@ -1,0 +1,40 @@
+
+<div class="container">
+    <br/>
+    <h2>Verfuegbare User</h2>
+    <div class="row">
+        <div class="col-sm-2"><input class="form-control" type="text" ng-model="userSearchQuery"
+                                     placeholder="Suche"/>
+        </div>
+        <div class="col-sm-6"></div>
+        <div class="col-sm-4"><a href="#!userEdit" class="btn btn-default" role="button"><span></span>Benutzer registrieren</a></div>
+        <div class="col-sm-4"><a href="#!userLogin" class="btn btn-default" role="button"><span></span>Benutzer anmelden</a></div>
+    </div>
+    <br/>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Passwort</th>
+            <th>Vorname</th>
+            <th>Nachname</th>
+            <th>Eingeloggt</th>
+            <th> </th>
+            <th/>
+        </tr>
+        </thead>
+        <tr ng-repeat="user in users | filter:userSearchQuery | orderBy:['firstName']">
+            <td>{{user.kennung}}</td>
+            <td>{{user.password}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.loggedIn? 'Ja' : 'Nein'}}</td>
+            <td>
+                <button type="button" class="btn btn-default" ng-click="logout(user.kennung)"/>
+                Ausloggen
+            </td>
+
+        </tr>
+    </table>
+</div>
+
