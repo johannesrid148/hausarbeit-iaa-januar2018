@@ -31,7 +31,6 @@ public class Survey {
 
     public Survey()
     {
-        this.active = true;
         this.appointmentOptions = new ArrayList<Appointment>();
     }
 

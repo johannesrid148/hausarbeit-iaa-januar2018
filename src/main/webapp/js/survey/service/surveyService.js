@@ -8,6 +8,16 @@ application.service('surveyService', [
             return $http.get('/api/backSurvey');
         };
 
+        // function to get all active surveys
+        this.findActive = function () {
+            return $http.get('/api/backSurvey/getActiveSurveys');
+        };
+
+        // function to get all inactive surveys
+        this.findInactive = function () {
+            return $http.get('/api/backSurvey/getInactiveSurveys');
+        };
+
         this.findOne = function (surveyID) {
             return $http.get('/api/backSurvey/' + surveyID);
         };

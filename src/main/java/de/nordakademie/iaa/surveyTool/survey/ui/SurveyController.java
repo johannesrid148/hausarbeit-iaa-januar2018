@@ -3,6 +3,8 @@ package de.nordakademie.iaa.surveyTool.survey.ui;
 
 import de.nordakademie.iaa.surveyTool.appointment.model.Appointment;
 import de.nordakademie.iaa.surveyTool.exception.ForbiddenUserException;
+import de.nordakademie.iaa.surveyTool.exception.MoreThanOneUserLoggedInException;
+import de.nordakademie.iaa.surveyTool.exception.NoUserFoundException;
 import de.nordakademie.iaa.surveyTool.exception.SurveyNotFoundException;
 import de.nordakademie.iaa.surveyTool.survey.model.Survey;
 import de.nordakademie.iaa.surveyTool.survey.service.SurveyService;
@@ -80,4 +82,18 @@ public class SurveyController {
     public Survey endSurvey(@PathVariable("id") Long idSurvey){
         return  surveyService.endSurvey(idSurvey);
     }
+
+    @GetMapping
+    @RequestMapping("/getActiveSurveys")
+    public List<Survey> getActiveSurveys() {
+        return surveyService.getActiveSurveys();
+    }
+
+    @GetMapping
+    @RequestMapping("/getInactiveSurveys")
+    public List<Survey> getInactiveSurveys() {
+        return surveyService.getInactiveSurveys();
+    }
+
+
 }

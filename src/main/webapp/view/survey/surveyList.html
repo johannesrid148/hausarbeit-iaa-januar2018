@@ -26,7 +26,7 @@
             <th>ID</th>
             <th>Titel</th>
             <th>Beschreibung</th>
-            <th>Status</th>
+            <th>Aktiv</th>
             <th/>
         </tr>
         </thead>
@@ -35,7 +35,7 @@
             <td>{{survey.id}}</td>
             <td>{{survey.title}}</td>
             <td>{{survey.description}}</td>
-            <td>{{survey.active}}</td>
+            <td>{{survey.active? 'Ja' : 'Nein'}}</td>
             <td>
                 <button class="btn btn-default" type="button" ng-click="getSurvey(survey.id)">
                     <span></span>

@@ -99,6 +99,16 @@ public class SurveyService {
         else throw new SurveyNotFoundException("Diese Umfrage wurde in der Datenbank nicht gefunden");
     }
 
+    @Transactional(readOnly = true)
+    public List<Survey> getActiveSurveys() {
+        return surveyRepository.getActiveSurveys();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Survey> getInactiveSurveys() {
+        return surveyRepository.getInactiveSurveys();
+    }
+
    /* public Survey participate(Survey appointmentSurvey) {
     }*/
 }

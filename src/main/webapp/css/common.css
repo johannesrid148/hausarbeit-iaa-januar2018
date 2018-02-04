@@ -48,3 +48,31 @@ input[type="text"],
 select{
     padding:5px;
 }
+
+#userprofile
+{
+    float: left;
+    width: 25%; /* optionale Weitenangabe */
+}
+
+#surveysoverviewactive
+{
+    float: right;
+    width: 65%; /* optionale Weitenangabe */
+    background-color: #FFE4B5;
+}
+
+#surveysoverviewvoted
+{
+    float: right;
+    width: 65%; /* optionale Weitenangabe */
+    background-color: #90EE90;
+}
+
+
+#seperator
+{
+    float: left;
+    width: 10%; /* optionale Weitenangabe */
+}
+

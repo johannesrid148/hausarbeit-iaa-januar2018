@@ -36,4 +36,11 @@ public class SurveyRepository {
         survey.setActive(false);
         return survey;
     }
+
+    public List<Survey> getActiveSurveys() {
+        return entityManager.createQuery("SELECT r FROM Survey r WHERE r.active = TRUE", Survey.class).getResultList();
+    }
+    public List<Survey> getInactiveSurveys() {
+        return entityManager.createQuery("SELECT r FROM Survey r WHERE r.active = FALSE OR r.active = NULL", Survey.class).getResultList();
+    }
 }

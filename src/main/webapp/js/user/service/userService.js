@@ -9,10 +9,22 @@ application.service('userService', [
             return $http.get('/api/users/showUser');
         };
 
+        // function to logged in User name
+        this.getLoggedInUser = function () {
+            return $http.get('/api/users/getLoggedInUser');
+        };
+
         // function to save a new survey
         this.saveUser = function (user) {
             return $http.post('/api/users',user);
         };
+
+        // function to check if a user is logged in
+        this.userLoggedIn = function () {
+            return $http.get('/api/users/userLoggedIn');
+        };
+
+
 
         // function to login User
         this.login = function (enteredPassword,enteredKennung) {
@@ -35,9 +47,6 @@ application.service('userService', [
             return $http.get('/api/users/userLogout',options);
         };
 
-        // function to logged in User name
-        this.getLoggedInUserName = function () {
-            return $http.get('/api/users/getLoggedInUser');
-        };
+
     }
 ]);

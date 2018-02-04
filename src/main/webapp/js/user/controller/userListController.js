@@ -11,7 +11,7 @@ application.controller('userListController', [
             });
 
 
-        // function to navigate to the timetable
+        // function to logout user
         $scope.logout = function (kennung) {
             userService.logout(kennung)
                 .then(function (response) {

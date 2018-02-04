@@ -56,6 +56,11 @@ public class UserService {
         return userRepository.getLoggedInUser();
     }
 
+    @Transactional
+    public boolean userLoggedIn() {
+        return userRepository.userLoggedIn();
+    }
+
     private void validateUser(User user)
             throws ObjectAlreadyExistsException, RequiredParameterMissingException, NoUserFoundException {
         if (user.getFirstName() == null || user.getFirstName().isEmpty() || user.getLastName() == null ||
@@ -102,17 +107,5 @@ public class UserService {
             throw new SelfLoggedOutException("Sie sind nicht eingeloggt");
         }
     }
-
-
-    /*Muss der Rückgabewert exemplar der Klasse UserService sein?
-    public User checkAccess (String password, String username) throws WrongAccessDataException {
-        User user = userRepository.findOneByName(username);
-        if (user.getLastName().equals(username)) {
-            return user;
-        }
-        else throw new WrongAccessDataException("Zugang verwährt. Bitte geben sie ihre korrekten Anmeldedaten ein");
-
-
-    }*/
 }
 

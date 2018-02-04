@@ -42,13 +42,17 @@ public class UserRepository {
 
     public  List<User> getLoggedInUser() throws MoreThanOneUserLoggedInException, NoUserFoundException {
         List<User> loggedIn = entityManager
-                .createQuery("SELECT u FROM User u WHERE u.loggedIn = ?1",
+                .createQuery("SELECT u FROM User u WHERE u.loggedIn = TRUE",
                         User.class)
-                .setParameter(1, TRUE)
                 .getResultList();
         if (loggedIn.isEmpty()) {throw new NoUserFoundException("Kein User eingeloggt");}
         return loggedIn;
     }
+
+    public  boolean userLoggedIn() {
+        return findLoggedInUsers().isEmpty();
+    }
+
 
     public List<User> findAll() {
         return entityManager.createQuery("SELECT u FROM User u", User.class).getResultList();

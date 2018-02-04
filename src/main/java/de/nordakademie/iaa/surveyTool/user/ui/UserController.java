@@ -60,6 +60,12 @@ public class UserController {
         return userService.getLoggedInUser();
     }
 
+    @GetMapping
+    @RequestMapping("/userLoggedIn")
+    public boolean userLoggedIn(){
+        return userService.userLoggedIn();
+    }
+
 
 
 }
