@@ -1,4 +1,8 @@
-
+/*
+ * Service for users
+ *
+ * @author Johannes Ridinger
+ */
 'use strict';
 application.service('userService', [
     '$http',
@@ -9,12 +13,12 @@ application.service('userService', [
             return $http.get('/api/users/showUser');
         };
 
-        // function to logged in User name
+        // function to get logged in User
         this.getLoggedInUser = function () {
             return $http.get('/api/users/getLoggedInUser');
         };
 
-        // function to save a new survey
+        // function to save a new user
         this.saveUser = function (user) {
             return $http.post('/api/users',user);
         };
@@ -23,8 +27,6 @@ application.service('userService', [
         this.userLoggedIn = function () {
             return $http.get('/api/users/userLoggedIn');
         };
-
-
 
         // function to login User
         this.login = function (enteredPassword,enteredKennung) {
@@ -37,7 +39,7 @@ application.service('userService', [
             return $http.get('/api/users/userLogin',options);
         };
 
-        // function to login User
+        // function to logout User
         this.logout = function (kennung) {
             const options = {
                 params: {
