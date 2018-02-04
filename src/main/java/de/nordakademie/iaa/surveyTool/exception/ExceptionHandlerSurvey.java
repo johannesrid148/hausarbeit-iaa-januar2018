@@ -1,5 +1,7 @@
 package de.nordakademie.iaa.surveyTool.exception;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -9,7 +11,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 public class ExceptionHandlerSurvey {
 
-    @ExceptionHandler(value = {InstanceAlreadyBuildException.class, ParameterMissingException.class,
+    @ExceptionHandler(value = {AnotherUserLoggedInException.class,MoreThanOneUserLoggedInException.class,
+            NoUserFoundException.class,ObjectAlreadyExistsException.class,RequiredParameterMissingException.class,SelfLoggedInException.class,
+            SelfLoggedOutException.class,SurveyNotFoundException.class,WrongAccessDataException.class,
+            WrongPasswordException.class,InstanceAlreadyBuildException.class, ParameterMissingException.class,
             WrongParameterValuesException.class})
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -17,6 +22,8 @@ public class ExceptionHandlerSurvey {
         return new ErrorResponse(e.getMessage());
     }
 
+    @AllArgsConstructor
+    @Getter
     private class ErrorResponse {
         private String errorMessage;
 

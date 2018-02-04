@@ -20,5 +20,9 @@ application.controller('userLoginController', [
                 });
         }
 
+        $scope.register = function () {
+            $location.path('/userEdit')
+        }
+
     }
 ]);

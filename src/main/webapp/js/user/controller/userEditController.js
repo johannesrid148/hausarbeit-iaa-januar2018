@@ -8,8 +8,6 @@ application.controller('userEditController', [
     '$location',
         function ($scope, userService, $location) {
         $scope.saveUser = function () {
-            console.log("user: " + $scope.user);
-            console.log("user: " + $scope.user.firstName);
             userService.saveUser($scope.user)
                 .then(function (response) {
                     if (response.status === 200) {
@@ -18,7 +16,7 @@ application.controller('userEditController', [
                         }
                         else {
                             alert("Sie haben erfolgreich den User " + response.data.firstName + " angelegt.");
-                            $location.path('/users')
+                            $location.path('/userLogin')
                         }
                     }
                 });
