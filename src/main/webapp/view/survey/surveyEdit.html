@@ -31,7 +31,13 @@
         </div>
         <div class="form-group">
             <label class="control-label col-sm-3" style="text-align: left;">*Aktiv:</label>
-            <input name="active" type="checkbox" ng-model="user.active" ng-value="false">
+            <input name="active" type="checkbox" ng-model="survey.active">
+        </div>
+        <div class="form-group">
+            <label class="control-label  col-sm-3" style="text-align: left;">Ersteller:*</label>
+            <select class="col-sm-2" name="user" ng-options="u as u.firstName + ' ' + u.lastName for u in users"
+                    ng-model="survey.user"
+                    required></select>
         </div>
         <br/>
 

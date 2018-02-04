@@ -55,8 +55,8 @@
                 <th/>
             </tr>
             </thead>
-            <tr ng-repeat="activesurvey in activesurveys | filter:surveySearchQuery | orderBy:['creator']">
-                <td>{{activesurvey.creator}}</td>
+            <tr ng-repeat="activesurvey in activesurveys | filter:surveySearchQuery | orderBy:['id']">
+                <td ng-if="activesurvey.user != null">{{activesurvey.user.firstName}} ({{activesurvey.user.kennung}})</td>
                 <td>{{activesurvey.id}}</td>
                 <td>{{activesurvey.title}}</td>
                 <td>{{activesurvey.description}}</td>
@@ -88,8 +88,8 @@
                 <th/>
             </tr>
             </thead>
-            <tr ng-repeat="inactivesurvey in inactivesurveys | filter:surveySearchQuery | orderBy:['creator']">
-                <td>{{inactivesurvey.creator}}</td>
+            <tr ng-repeat="inactivesurvey in inactivesurveys | filter:surveySearchQuery | orderBy:['id']">
+                <td ng-if="inactivesurvey.user != null">{{inactivesurvey.user.firstName}} ({{inactivesurvey.user.kennung}})</td>
                 <td>{{inactivesurvey.id}}</td>
                 <td>{{inactivesurvey.title}}</td>
                 <td>{{inactivesurvey.description}}</td>

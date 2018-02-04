@@ -51,7 +51,7 @@ public class SurveyService {
     /*Cannot deserialize instance of de.nordakademie.iaa.surveyTool.survey.model.Survey out of START_ARRAY token*/
     @Transactional
     public Survey update(Survey survey, String username) throws ForbiddenUserException {
-        if (username.equals(survey.getCreator())) {
+        if (username.equals(survey.getUser().getKennung())) {
             Survey surveyUpdate = surveyRepository.findOne(survey.getId());
             if (surveyUpdate != null) {
                 surveyUpdate.setDescription(survey.getDescription());

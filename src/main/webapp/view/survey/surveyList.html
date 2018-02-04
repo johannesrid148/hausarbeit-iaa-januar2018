@@ -30,8 +30,8 @@
             <th/>
         </tr>
         </thead>
-        <tr ng-repeat="survey in surveys | filter:surveySearchQuery | orderBy:['creator']">
-            <td>{{survey.creator}}</td>
+        <tr ng-repeat="survey in surveys | filter:surveySearchQuery | orderBy:['id']">
+            <td ng-if="survey.user != null">{{survey.user.kennung}}</td>
             <td>{{survey.id}}</td>
             <td>{{survey.title}}</td>
             <td>{{survey.description}}</td>

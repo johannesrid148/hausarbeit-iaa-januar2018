@@ -36,5 +36,8 @@ application.config(function ($routeProvider) {
             controller: 'userPageController',
             templateUrl: 'view/user/userPage.html'
         })
+        .otherwise({
+            redirectTo: '/userPage'
+        });
 });
 

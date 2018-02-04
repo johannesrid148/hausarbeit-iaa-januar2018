@@ -2,6 +2,10 @@ package de.nordakademie.iaa.surveyTool.survey.model;
 
 import de.nordakademie.iaa.surveyTool.appointment.model.Appointment;
 import de.nordakademie.iaa.surveyTool.user.model.User;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -24,8 +28,8 @@ public class Survey {
 
     private Boolean active;
 
-
-    private String creator;
+    @ManyToOne(optional = false)
+    private User user;
 
     //Constructor
 
@@ -79,12 +83,12 @@ public class Survey {
         this.active = active;
     }
 
-    public String getCreator() {
-        return creator;
+    public User getUser() {
+        return user;
     }
 
-    public void setCreator(String creator) {
-        this.creator = creator;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public void update(String title, String description, List<Appointment> appointmentOptions) {

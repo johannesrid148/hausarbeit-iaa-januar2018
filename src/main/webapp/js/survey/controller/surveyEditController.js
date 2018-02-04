@@ -6,15 +6,19 @@
 application.controller('surveyEditController', [
     '$scope',
     'surveyService',
+    'userService',
     '$location',
-    function ($scope, surveyService, $location) {
+    function ($scope, surveyService,userService, $location) {
+        userService.getLoggedInUser()
+            .then(function (response) {
+                $scope.users = response.data;
+            });
 
         $scope.deleteDate = function (index) {
             $scope.dates.splice(index, 1);
         }
 
         $scope.saveSurvey = function () {
-            $scope.survey.creator = "Testcreator";
             surveyService.saveSurvey($scope.survey)  //appointmentOptions
                 .then(function (response) {
                     if (response.status === 200) {
