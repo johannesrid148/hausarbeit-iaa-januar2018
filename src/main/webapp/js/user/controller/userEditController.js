@@ -1,5 +1,7 @@
 /*
  * Controller for the userEdit view
+ *
+ * @author Johannes Ridinger
  */
 'use strict';
 application.controller('userEditController', [

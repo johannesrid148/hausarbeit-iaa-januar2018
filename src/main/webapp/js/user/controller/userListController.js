@@ -1,3 +1,8 @@
+/*
+ * Controller for the userList view
+ *
+ * @author Johannes Ridinger
+ */
 'use strict';
 application.controller('userListController', [
     '$scope',

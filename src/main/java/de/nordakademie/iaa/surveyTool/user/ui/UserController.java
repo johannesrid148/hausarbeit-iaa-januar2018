@@ -124,8 +124,6 @@ public class UserController {
         return userService.userLoggedIn();
     }
 
-
-
 }
 
 

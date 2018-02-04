@@ -1,9 +1,14 @@
+/*
+ * Controller for the userLogin view
+ *
+ * @author Johannes Ridinger
+ */
 'use strict';
 application.controller('userLoginController', [
     '$scope',
     'userService',
     '$location',
-    // function to return to the previous view
+    // function to login a user
     function ($scope, userService, $location) {
         $scope.login = function () {
             userService.login($scope.user.enteredPassword,$scope.user.enteredKennung)
@@ -20,6 +25,7 @@ application.controller('userLoginController', [
                 });
         }
 
+        // function to return to the previous view
         $scope.register = function () {
             $location.path('/userEdit')
         }

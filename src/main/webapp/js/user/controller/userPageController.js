@@ -5,16 +5,19 @@ application.controller('userPageController', [
     'surveyService',
     '$location',
     function ($scope, userService,surveyService,$location) {
+        //get all logged in users
         userService.getLoggedInUser()
             .then(function (response) {
                 $scope.users = response.data;
             });
 
+        //get all active Surveys
         surveyService.findActive()
             .then(function (response) {
                 $scope.activesurveys = response.data;
             });
 
+        //get all inactive Surveys
         surveyService.findInactive()
             .then(function (response) {
                 $scope.inactivesurveys = response.data;
