@@ -26,7 +26,7 @@
         </thead>
         <tr ng-repeat="user in users | filter:userSearchQuery | orderBy:['firstName']">
             <td>{{user.kennung}}</td>
-            <td>{{user.password}}</td>
+            <td type="password">{{user.password}}</td>
             <td>{{user.firstName}}</td>
             <td>{{user.lastName}}</td>
             <td>{{user.loggedIn? 'Ja' : 'Nein'}}</td>
