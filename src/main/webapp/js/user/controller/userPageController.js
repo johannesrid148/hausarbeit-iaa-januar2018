@@ -23,6 +23,11 @@ application.controller('userPageController', [
                 $scope.inactivesurveys = response.data;
             });
 
+        // dummy function vote
+        $scope.vote = function () {
+            alert("Für Umfrage abgestimmt");
+        }
+
         // function to logout user
         $scope.logout = function (kennung) {
             userService.logout(kennung)

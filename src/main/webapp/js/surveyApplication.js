@@ -37,7 +37,7 @@ application.config(function ($routeProvider) {
             templateUrl: 'view/user/userPage.html'
         })
         .otherwise({
-            redirectTo: '/userPage'
+            redirectTo: '/userLogin'
         });
 });
 
