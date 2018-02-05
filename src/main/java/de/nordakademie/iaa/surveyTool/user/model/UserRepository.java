@@ -1,6 +1,5 @@
 package de.nordakademie.iaa.surveyTool.user.model;
 
-import de.nordakademie.iaa.surveyTool.exception.AnotherUserLoggedInException;
 import de.nordakademie.iaa.surveyTool.exception.MoreThanOneUserLoggedInException;
 import de.nordakademie.iaa.surveyTool.exception.NoUserFoundException;
 import org.springframework.stereotype.Repository;

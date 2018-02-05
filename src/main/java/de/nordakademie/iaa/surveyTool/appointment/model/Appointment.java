@@ -1,5 +1,6 @@
 package de.nordakademie.iaa.surveyTool.appointment.model;
 
+/*Klasse geschrieben von Max Schumann*/
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,8 +14,6 @@ public class Appointment {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String starttime;
-    private String endtime;
     private Date start;
     private Date end;
 

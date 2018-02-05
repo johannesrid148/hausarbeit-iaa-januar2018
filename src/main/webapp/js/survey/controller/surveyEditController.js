@@ -26,7 +26,7 @@ application.controller('surveyEditController', [
                             alert("Alert save Survey: " + response.data.errorMessage);
                         }
                         else {
-                            alert("Sie haben erfolgreich die Umfrage mit der ID " + response.data.id + " und der Beschreibung " +  response.data.description
+                            alert("Sie haben erfolgreich die Umfrage mit dem Titel " + response.data.title + " und der Beschreibung " +  response.data.description
                                 + " angelegt.");
                             $location.path('/appointmentCreate/survey/' + response.data.id);
                         }

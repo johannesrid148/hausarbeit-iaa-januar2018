@@ -7,6 +7,12 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+/**
+ * Klasse/Modell für User
+ *
+ * @author Johannes Ridinger
+ */
+
 @Entity
 @Table(name = "USER")
 @AllArgsConstructor
@@ -37,17 +43,6 @@ public class User {
 
     @Column
     private Boolean loggedIn;
-
-   /* public User(String kennung, String password, String firstName, String lastName, String mail) {
-        this.kennung = kennung;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.mail = mail;
-        this.loggedIn=false;
-    }*/
-    /*public User() {
-    }*/
 
     public Long getId() {
         return id;

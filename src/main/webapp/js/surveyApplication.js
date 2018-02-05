@@ -1,5 +1,5 @@
 'use strict';
-/*Klasse geschrieben von Max Schumann*/
+/*Klasse geschrieben von Max Schumann und Johannes Ridinger*/
 const application = angular.module('surveyApplication', ['ngRoute', 'ui.bootstrap']);
 
 application.config(function ($routeProvider) {
