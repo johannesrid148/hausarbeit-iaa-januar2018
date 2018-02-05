@@ -7,7 +7,12 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
-/*Klasse geschrieben von Max Schumann*/
+/**
+*Klasse geschrieben von Max Schumann
+ *
+ * handles the Exeptions
+*
+* */
 @ControllerAdvice
 public class ExceptionHandlerSurvey {
 
